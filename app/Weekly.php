@@ -25,17 +25,13 @@ class Weekly extends Model
      * @param \Carbon\Carbon $from
      * @param \Carbon\Carbon $to
      *
-     * @return mixed
+     * @return array
      */
-    public function fetchLinks(Carbon $from, Carbon $to)
+    public function fetchLinks(Carbon $from, Carbon $to): array
     {
-        $links = Link::with('section')
-            ->select('*')
-            ->whereBetween('created_at', [$from, $to])
-            ->orderBy('type', 'desc')
-            ->orderBy('section_id', 'desc')
-            ->get();
+        $links = $this->links($from, $to);
 
+        /** @var \Illuminate\Database\Eloquent\Collection $groups */
         $groups = $links->mapToGroups(static function ($item) {
             return [$item['type'] => $item];
         });
@@ -51,4 +47,32 @@ class Weekly extends Model
             'groups' => $groups
         ];
     }
+
+    /**
+     * @param \App\Weekly $weekly
+     *
+     * @return int
+     */
+    public function numberOfLinks(Weekly $weekly): int
+    {
+        return $this->links($weekly->from, $weekly->to)->count();
+    }
+
+    /**
+     * @param \Carbon\Carbon $from
+     * @param \Carbon\Carbon $to
+     *
+     * @return \App\Link[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    private function links(Carbon $from, Carbon $to)
+    {
+        $links = Link::with('section')
+            ->select('*')
+            ->whereBetween('created_at', [$from, $to])
+            ->orderBy('type', 'desc')
+            ->orderBy('section_id', 'desc')
+            ->get();
+
+        return $links;
+}
 }
