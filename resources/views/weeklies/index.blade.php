@@ -13,6 +13,7 @@
                                 <th>Released at</th>
                                 <th>From</th>
                                 <th>To</th>
+                                <th># of Links</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -28,6 +29,7 @@
                             <td>{{ $weekly->released_at }}</td>
                             <td>{{ $weekly->from }}</td>
                             <td>{{ $weekly->to }}</td>
+                            <td>{{ $weekly->numberOfLinks($weekly) }}</td>
                             <td>
                                 <a href="{{ route('weeklies.markdown', ['weekly' => $weekly]) }}"
                                    class="btn btn-sm btn-primary">Generate MD</a>
