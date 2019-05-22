@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class WeekliesGenerateMarkdown extends Controller
 {
     /**
-     * Handle the incoming request.
+     * When click on 'generate markdown' button, generates respective weekly
+     * and forces download of final markdown file
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Weekly $weekly
@@ -21,9 +22,18 @@ class WeekliesGenerateMarkdown extends Controller
         $allLinks = $fetched['all'];
         $groups = $fetched['groups'];
 
-        return view(
+        $fileName = "{$weekly->edition}.md";
+        $view = view(
             'weeklies.markdown',
             compact('weekly', 'allLinks', 'groups')
+        );
+
+        return response()->streamDownload(
+            static function () use ($view) {
+                echo $view;
+            },
+            $fileName,
+            ['Content-Type' => 'text/markdown']
         );
     }
 }
