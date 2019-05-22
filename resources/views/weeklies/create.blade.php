@@ -24,7 +24,7 @@
                                 <div class="col-md-6">
                                     <input id="edition" type="number"
                                            class="form-control @error('edition') is-invalid @enderror" name="edition"
-                                           value="{{ old('edition') }}" required>
+                                           value="{{ old('edition') ?: $newWeekly }}" required>
 
                                     @error('edition')
                                     <span class="invalid-feedback" role="alert">

@@ -5,6 +5,23 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Weekly
+ *
+ * @package App
+ *
+ * @property int $id
+ * @property int $edition
+ * @property Carbon $released_at
+ * @property Carbon $from
+ * @property Carbon $to
+ * @property string $description
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ *
+ * @method Weekly latest()
+ * @method Weekly first()
+ */
 class Weekly extends Model
 {
     protected $fillable = [
@@ -59,6 +76,14 @@ class Weekly extends Model
     }
 
     /**
+     * @return int
+     */
+    public function newWeeklyNumber(): int
+    {
+        return $this->latest()->first()->edition + 1;
+    }
+
+    /**
      * @param \Carbon\Carbon $from
      * @param \Carbon\Carbon $to
      *
@@ -74,5 +99,5 @@ class Weekly extends Model
             ->get();
 
         return $links;
-}
+    }
 }
