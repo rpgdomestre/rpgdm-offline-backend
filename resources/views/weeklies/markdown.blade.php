@@ -1,3 +1,5 @@
+@include('weeklies.partials.frontmatter', ['edition' => $weekly->edition, 'released_at' => $weekly->released_at])
+
 {{ $weekly->description  }}
 
 @foreach ($groups as $name => $sections)
