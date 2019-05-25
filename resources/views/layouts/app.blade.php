@@ -41,6 +41,8 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('links.index') }}">View Links</a>
                                 <a class="dropdown-item" href="{{ route('links.create') }}">Create Link</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('sections.create') }}">Create Section</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
