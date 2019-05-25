@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -20,6 +21,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property ?int $via
  * @property Carbon created_at
  * @property Carbon $updated_at
+ *
+ * @method Link all
+ * @method Link select
  *
  */
 class Link extends Model
@@ -43,6 +47,31 @@ class Link extends Model
     public function section(): BelongsTo
     {
         return $this->belongsTo(Section::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function twitter(): BelongsTo
+    {
+        return $this->belongsTo(SourceTwitter::class, 'source', 'source');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function sources(): Collection
+    {
+        return $this
+            ->select(
+                'links.source',
+                'source_twitters.twitter',
+                'source_twitters.id'
+            )
+            ->distinct()
+            ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
+            ->orderBy('links.source', 'ASC')
+            ->get();
     }
 
     /**
