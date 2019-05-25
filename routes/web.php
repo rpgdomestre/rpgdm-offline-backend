@@ -15,6 +15,9 @@ Route::middleware(['auth'])->group(static function () {
     Route::put('/links/{link}', 'LinksUpdate')->name('links.update');
     Route::patch('/links/{link}', 'LinksUpdate');
 
+    Route::get('/links/sections/create', 'SectionsCreate')->name('sections.create');
+    Route::post('/links/sections', 'SectionsStore')->name('sections.store');
+
     Route::get('/weeklies', 'WeekliesIndex')->name('weeklies.index');
     Route::get('/weeklies/create', 'WeekliesCreate')->name('weeklies.create');
     Route::post('/weeklies', 'WeekliesStore')->name('weeklies.store');
