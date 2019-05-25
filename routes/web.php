@@ -18,6 +18,9 @@ Route::middleware(['auth'])->group(static function () {
     Route::get('/links/sections/create', 'SectionsCreate')->name('sections.create');
     Route::post('/links/sections', 'SectionsStore')->name('sections.store');
 
+    Route::get('/links/sources/twitter', 'SourceTwitterCreate')->name('sources.twitter.create');
+    Route::post('/links/sources/twitter', 'SourceTwitterStore')->name('sources.twitter.store');
+
     Route::get('/weeklies', 'WeekliesIndex')->name('weeklies.index');
     Route::get('/weeklies/create', 'WeekliesCreate')->name('weeklies.create');
     Route::post('/weeklies', 'WeekliesStore')->name('weeklies.store');
