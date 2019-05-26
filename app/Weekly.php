@@ -91,7 +91,7 @@ class Weekly extends Model
      */
     private function links(Carbon $from, Carbon $to)
     {
-        $links = Link::with('section')
+        $links = Link::with(['section', 'twitter'])
             ->select('*')
             ->whereBetween('created_at', [$from, $to])
             ->orderBy('type', 'desc')
