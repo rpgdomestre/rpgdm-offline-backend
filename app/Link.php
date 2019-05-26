@@ -66,7 +66,8 @@ class Link extends Model
             ->select(
                 'links.source',
                 'source_twitters.twitter',
-                'source_twitters.id'
+                'source_twitters.id',
+                'source_twitters.hide'
             )
             ->distinct()
             ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
