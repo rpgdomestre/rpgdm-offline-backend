@@ -3,15 +3,15 @@
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 
 /**
  * Class Link
  *
  * @package App
- *
  * @property int $id
  * @property string $link
  * @property string $name
@@ -21,15 +21,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property ?int $via
  * @property Carbon created_at
  * @property Carbon $updated_at
- *
- * @method Link all
- * @method Link select($first, ...$rest)
- * @method Link distinct
- * @method Link leftJoin($tableJoin, $tableColumn, $comparator, $tableJoinColumn)
- * @method Link whereIn($column, $arrayOfValues)
- * @method Link orderBy($column, $AscOrDesc)
- * @method Collection get()
- *
+ * @property-read \App\Section $section
+ * @property-read \App\SourceTwitter $twitter
+ * @method static Builder|Link newModelQuery()
+ * @method static Builder|Link newQuery()
+ * @method static Builder|Link query()
+ * @method static Builder|Link whereCreatedAt($value)
+ * @method static Builder|Link whereId($value)
+ * @method static Builder|Link whereLink($value)
+ * @method static Builder|Link whereName($value)
+ * @method static Builder|Link whereSectionId($value)
+ * @method static Builder|Link whereSource($value)
+ * @method static Builder|Link whereType($value)
+ * @method static Builder|Link whereUpdatedAt($value)
+ * @method static Builder|Link whereVia($value)
+ * @mixin \Eloquent
  */
 class Link extends Model
 {
@@ -63,16 +69,17 @@ class Link extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Support\Collection
      */
     public function sources(): Collection
     {
-        return $this
-            ->select(
-                'links.source',
-                'source_twitters.twitter',
-                'source_twitters.id',
-                'source_twitters.hide'
+        return self::select(
+                [
+                    'links.source',
+                    'source_twitters.twitter',
+                    'source_twitters.id',
+                    'source_twitters.hide'
+                ]
             )
             ->distinct()
             ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
