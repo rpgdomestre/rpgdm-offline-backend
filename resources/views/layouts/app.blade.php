@@ -43,6 +43,8 @@
                                 <a class="dropdown-item" href="{{ route('links.create') }}">Create Link</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('sections.create') }}">Create Section</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('sources.twitter.create') }}">Add Sources' Twitter</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
