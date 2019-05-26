@@ -23,7 +23,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon $updated_at
  *
  * @method Link all
- * @method Link select
+ * @method Link select($first, ...$rest)
+ * @method Link distinct
+ * @method Link leftJoin($tableJoin, $tableColumn, $comparator, $tableJoinColumn)
+ * @method Link whereIn($column, $arrayOfValues)
+ * @method Link orderBy($column, $AscOrDesc)
+ * @method Collection get()
  *
  */
 class Link extends Model
