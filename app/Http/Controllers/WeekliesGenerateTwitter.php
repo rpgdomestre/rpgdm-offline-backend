@@ -18,13 +18,7 @@ class WeekliesGenerateTwitter extends Controller
      */
     public function __invoke(Request $request, Weekly $weekly)
     {
-        $fetched = $weekly->fetchLinks($weekly->from, $weekly->to);
-
-        /** @var \Illuminate\Database\Eloquent\Collection $all */
-        $all = $fetched['all'];
-        $all = $all->filter(static function($link) {
-            return (string) $link->twitter->twitter !== '';
-        })->all();
+        $all = $weekly->fetchLinksForTwitter($weekly->from, $weekly->to);
 
         return view('weeklies.twitter', compact('all'));
     }

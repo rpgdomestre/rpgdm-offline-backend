@@ -3,13 +3,13 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Weekly
  *
  * @package App
- *
  * @property int $id
  * @property int $edition
  * @property Carbon $released_at
@@ -18,9 +18,20 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
  * @method Weekly latest()
  * @method Weekly first()
+ * @method static Builder|Weekly newModelQuery()
+ * @method static Builder|Weekly newQuery()
+ * @method static Builder|Weekly query()
+ * @method static Builder|Weekly whereCreatedAt($value)
+ * @method static Builder|Weekly whereDescription($value)
+ * @method static Builder|Weekly whereEdition($value)
+ * @method static Builder|Weekly whereFrom($value)
+ * @method static Builder|Weekly whereId($value)
+ * @method static Builder|Weekly whereReleasedAt($value)
+ * @method static Builder|Weekly whereTo($value)
+ * @method static Builder|Weekly whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class Weekly extends Model
 {
@@ -63,6 +74,26 @@ class Weekly extends Model
             'all' => $links,
             'groups' => $groups
         ];
+    }
+
+    /**
+     * @param \Carbon\Carbon $from
+     * @param \Carbon\Carbon $to
+     *
+     * @return array
+     */
+    public function fetchLinksForTwitter(Carbon $from, Carbon $to): array
+    {
+        $fetched = $this->fetchLinks($from, $to);
+
+        /** @var \Illuminate\Database\Eloquent\Collection $all */
+        $all = $fetched['all'];
+
+        return $all->filter(static function ($link) {
+            return $link->twitter
+                ? (string)$link->twitter->twitter !== ''
+                : false;
+        })->all();
     }
 
     /**
