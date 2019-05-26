@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSourceTwitter;
-use App\Link;
 use App\SourceTwitter;
 
 class SourceTwitterStore extends Controller
@@ -12,23 +11,16 @@ class SourceTwitterStore extends Controller
      * @var \App\SourceTwitter
      */
     private $twitters;
-    /**
-     * @var \App\Link
-     */
-    private $link;
 
     /**
      * SourceTwitterStore constructor.
      *
      * @param \App\SourceTwitter $twitters
-     * @param \App\Link $link
      */
     public function __construct(
-        SourceTwitter $twitters,
-        Link $link
+        SourceTwitter $twitters
     ) {
         $this->twitters = $twitters;
-        $this->link = $link;
     }
 
     /**
@@ -40,21 +32,11 @@ class SourceTwitterStore extends Controller
      */
     public function __invoke(StoreSourceTwitter $request)
     {
-        $sources = $request->get('source');
-        $twitters = $request->get('twitter');
-        $countSources = count($sources);
-        $inserts = [];
-
-        if ($countSources) {
-            $this->twitters->truncate();
-
-            $inserts = array_map(
-                static function (int $number) use ($sources, $twitters) {
-                    return ['source' => $sources[$number], 'twitter' => $twitters[$number]];
-                },
-                range(0, $countSources - 1)
-            );
-        }
+        $inserts = $this->twitters->prepareMultipleInsertValues(
+            $request->get('source'),
+            $request->get('twitter'),
+            (array) $request->get('hides')
+        );
 
         $result = $this->twitters->insert($inserts);
 
