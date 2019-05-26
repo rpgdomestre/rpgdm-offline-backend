@@ -71,6 +71,7 @@ class Link extends Model
             )
             ->distinct()
             ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
+            ->whereIn('source_twitters.hide', [false, null])
             ->orderBy('links.source', 'ASC')
             ->get();
     }
