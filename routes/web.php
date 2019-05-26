@@ -29,5 +29,6 @@ Route::middleware(['auth'])->group(static function () {
     Route::patch('/weeklies/{weekly}', 'WeekliesUpdate');
 
     Route::get('/weeklies/{weekly}/markdown', 'WeekliesGenerateMarkdown')->name('weeklies.markdown');
+    Route::get('/weeklies/{weekly}/twitter', 'WeekliesGenerateTwitter')->name('weeklies.twitter');
 });
 
