@@ -33,6 +33,8 @@
                             <td>
                                 <a href="{{ route('weeklies.markdown', ['weekly' => $weekly]) }}"
                                    class="btn btn-sm btn-primary">Generate MD</a>
+                                <a href="{{ route('weeklies.twitter', ['weekly' => $weekly]) }}"
+                                   class="btn btn-sm btn-secondary">Generate TY</a>
                             </td>
                         </tr>
                         @endforeach
