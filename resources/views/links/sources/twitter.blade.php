@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {!! session('status') !!}
@@ -20,14 +20,30 @@
                             @foreach ($sources as $source)
                                 <div class="form-group row">
                                     <label for="source{{$source->id}}"
-                                           class="col-md-4 col-form-label text-md-right">{{ $source->source }}</label>
+                                           class="col-md-5 col-form-label text-md-right">{{ $source->source }}</label>
                                     <input type="hidden" name="source[]" value="{{ $source->source }}">
 
                                     <div class="col-md-6">
-                                        <input id="source{{$source->id}}" type="text"
-                                               class="form-control"
-                                               name="twitter[]"
-                                               value="{{ $source->twitter }}" autofocus>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto">
+                                                <input id="source{{$source->id}}" type="text"
+                                                       class="form-control"
+                                                       name="twitter[]"
+                                                       value="{{ $source->twitter }}">
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input"
+                                                           type="checkbox"
+                                                           name="hides[{{ $source->source }}]"
+                                                           value="true"
+                                                           id="should-hide">
+                                                    <label class="form-check-label" for="should-hide">
+                                                        Should hide?
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
