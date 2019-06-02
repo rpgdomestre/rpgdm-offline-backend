@@ -49,9 +49,7 @@ class SourceTwitter extends Model
     ): array {
         $countSources = count($sources);
 
-        if ($countSources) {
-            $this->truncate();
-        }
+        $this->truncate();
 
         return array_map(
             static function (int $number) use ($sources, $twitters, $hides) {
