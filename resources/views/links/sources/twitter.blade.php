@@ -18,7 +18,7 @@
                             @csrf
 
                             @foreach ($sources as $source)
-                                <div class="form-group row">
+                                <div class="form-group row {{ $source->hide ? 'd-none' : '' }}">
                                     <label for="source{{$source->id}}"
                                            class="col-md-5 col-form-label text-md-right">{{ $source->source }}</label>
                                     <input type="hidden" name="source[]" value="{{ $source->source }}">
@@ -36,6 +36,7 @@
                                                     <input class="form-check-input"
                                                            type="checkbox"
                                                            name="hides[{{ $source->source }}]"
+                                                           {{ $source->hide ? 'checked' : '' }}
                                                            value="true"
                                                            id="should-hide">
                                                     <label class="form-check-label" for="should-hide">
