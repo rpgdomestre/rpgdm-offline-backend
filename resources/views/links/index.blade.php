@@ -14,6 +14,7 @@
                                 <th>Section</th>
                                 <th>Source</th>
                                 <th>Via</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +30,7 @@
                             <td>{{ $link->section->name }}</td>
                             <td>{{ $link->source }}</td>
                             <td>{{ $link->via ?? '' }}</td>
+                            <td>{{ $link->created_at }}</td>
                         </tr>
                         @endforeach
                         </tbody>
