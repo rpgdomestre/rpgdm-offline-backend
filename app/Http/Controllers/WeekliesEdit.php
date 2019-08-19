@@ -21,7 +21,17 @@ class WeekliesEdit extends Controller
         $from = Carbon::yesterday()->subDays(7)->setTime(0, 0, 0, 0);
         $to = Carbon::yesterday()->setTime(23, 59, 59, 999);
         $today = Carbon::today()->setTime(0, 0, 0, 0);
+        $links = $weekly->fetchAllLinksSortedByIdDesc($weekly->from, $weekly->to);
 
-        return view('weeklies.edit', compact('weekly', 'from', 'to', 'today'));
+        return view(
+            'weeklies.edit',
+            compact(
+                'weekly',
+                'from',
+                'to',
+                'today',
+                'links'
+            )
+        );
     }
 }
