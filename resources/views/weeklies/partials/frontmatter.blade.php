@@ -11,4 +11,6 @@ mNavigation: true
 mSectionPrimary: false
 mUseMTitleForPageTitle: true
 mContentClasses: weekly
+description: >-
+    {{ substr(str_replace(array("\r", "\n"), ' ', $description), 0, 299) }}
 ---
