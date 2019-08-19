@@ -22,7 +22,7 @@ class WeekliesGenerateMarkdown extends Controller
         $allLinks = $fetched['all'];
         $groups = $fetched['groups'];
 
-        $fileName = "{$weekly->edition}.md";
+        $fileName = "{$weekly->edition}.blade.md";
         $view = view(
             'weeklies.markdown',
             compact('weekly', 'allLinks', 'groups')
