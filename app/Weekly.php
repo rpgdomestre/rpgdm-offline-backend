@@ -80,6 +80,17 @@ class Weekly extends Model
      * @param \Carbon\Carbon $from
      * @param \Carbon\Carbon $to
      *
+     * @return mixed
+     */
+    public function fetchAllLinksSortedByIdDesc(Carbon $from, Carbon $to)
+    {
+        return $this->fetchLinks($from, $to)['all']->sortByDesc('id');
+    }
+
+    /**
+     * @param \Carbon\Carbon $from
+     * @param \Carbon\Carbon $to
+     *
      * @return array
      */
     public function fetchLinksForTwitter(Carbon $from, Carbon $to): array

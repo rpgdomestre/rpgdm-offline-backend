@@ -117,6 +117,36 @@
                         </form>
                     </div>
                 </div>
+
+                <h3 class="mt-5">{{ count($links) }} links on this Weekly</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Section</th>
+                        <th>Source</th>
+                        <th>Via</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach ($links as $link)
+                        <tr>
+                            <td>{{ $link->id  }}</td>
+                            <td>
+                                <a href="{{ route('links.edit', ['link' => $link]) }}" class="">
+                                    {{ $link->name }}
+                                </a>
+                            </td>
+                            <td>{{ $link->type }}</td>
+                            <td>{{ $link->section->name }}</td>
+                            <td>{{ $link->source }}</td>
+                            <td>{{ $link->via ?? '' }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
