@@ -131,7 +131,7 @@ class Weekly extends Model
      *
      * @return \App\Link[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
-    private function links(Carbon $from, Carbon $to)
+    private function links(Weekly $weekly)
     {
         $links = Link::with(['section', 'twitter'])
             ->select('*')
