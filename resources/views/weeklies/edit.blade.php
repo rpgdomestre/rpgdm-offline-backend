@@ -53,40 +53,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="from"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Links From') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="from" type="date"
-                                           class="form-control @error('from') is-invalid @enderror" name="from"
-                                           value="{{ old('from') ?: $weekly->from }}" required>
-
-                                    @error('from')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="to"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Links To') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="to" type="date"
-                                           class="form-control @error('to') is-invalid @enderror" name="to"
-                                           value="{{ old('to') ?: $weekly->to }}" required>
-
-                                    @error('to')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="description"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
