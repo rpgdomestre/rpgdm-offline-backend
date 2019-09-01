@@ -26,8 +26,6 @@ class UpdateWeeklies extends FormRequest
         return [
             'edition' => 'required|integer|exists:weeklies',
             'released_at' => 'required|date',
-            'from' => 'required|date',
-            'to' => 'required|date|different:from',
             'description' => 'required'
         ];
     }

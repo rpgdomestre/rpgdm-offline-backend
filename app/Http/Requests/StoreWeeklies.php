@@ -26,8 +26,6 @@ class StoreWeeklies extends FormRequest
         return [
             'edition' => 'required|integer|unique:weeklies',
             'released_at' => 'required|date',
-            'from' => 'required|date',
-            'to' => 'required|date|different:from',
             'description' => 'required'
         ];
     }
