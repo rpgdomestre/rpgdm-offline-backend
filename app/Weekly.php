@@ -50,14 +50,13 @@ class Weekly extends Model
     ];
 
     /**
-     * @param \Carbon\Carbon $from
-     * @param \Carbon\Carbon $to
+     * @param \App\Weekly $weekly
      *
      * @return array
      */
-    public function fetchLinks(Carbon $from, Carbon $to): array
+    public function fetchLinks(Weekly $weekly): array
     {
-        $links = $this->links($from, $to);
+        $links = $this->links($weekly);
 
         /** @var \Illuminate\Database\Eloquent\Collection $groups */
         $groups = $links->mapToGroups(static function ($item) {
@@ -77,25 +76,23 @@ class Weekly extends Model
     }
 
     /**
-     * @param \Carbon\Carbon $from
-     * @param \Carbon\Carbon $to
+     * @param \App\Weekly $weekly
      *
      * @return mixed
      */
-    public function fetchAllLinksSortedByIdDesc(Carbon $from, Carbon $to)
+    public function fetchAllLinksSortedByIdDesc(Weekly $weekly)
     {
-        return $this->fetchLinks($from, $to)['all']->sortByDesc('id');
+        return $this->fetchLinks($weekly)['all']->sortByDesc('id');
     }
 
     /**
-     * @param \Carbon\Carbon $from
-     * @param \Carbon\Carbon $to
+     * @param \App\Weekly $weekly
      *
      * @return array
      */
-    public function fetchLinksForTwitter(Carbon $from, Carbon $to): array
+    public function fetchLinksForTwitter(Weekly $weekly): array
     {
-        $fetched = $this->fetchLinks($from, $to);
+        $fetched = $this->fetchLinks($weekly);
 
         /** @var \Illuminate\Database\Eloquent\Collection $all */
         $all = $fetched['all'];
@@ -114,7 +111,7 @@ class Weekly extends Model
      */
     public function numberOfLinks(Weekly $weekly): int
     {
-        return $this->links($weekly->from, $weekly->to)->count();
+        return $this->links($weekly)->count();
     }
 
     /**
@@ -126,8 +123,7 @@ class Weekly extends Model
     }
 
     /**
-     * @param \Carbon\Carbon $from
-     * @param \Carbon\Carbon $to
+     * @param \App\Weekly $weekly
      *
      * @return \App\Link[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
