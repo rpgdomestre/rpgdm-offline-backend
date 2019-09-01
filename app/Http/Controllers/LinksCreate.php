@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Section;
+use App\Weekly;
 use Illuminate\Http\Request;
 
 class LinksCreate extends Controller
@@ -18,6 +19,8 @@ class LinksCreate extends Controller
     {
         $sections = Section::all(['id', 'name']);
 
-        return view('links.create', compact('sections'));
+        $newWeekly = Weekly::count();
+
+        return view('links.create', compact('sections', 'newWeekly'));
     }
 }
