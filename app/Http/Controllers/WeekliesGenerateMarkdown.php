@@ -18,7 +18,7 @@ class WeekliesGenerateMarkdown extends Controller
      */
     public function __invoke(Request $request, Weekly $weekly)
     {
-        $fetched = $weekly->fetchLinks($weekly->from, $weekly->to);
+        $fetched = $weekly->fetchLinks($weekly);
         $allLinks = $fetched['all'];
         $groups = $fetched['groups'];
 
