@@ -15,7 +15,7 @@ class WeekliesIndex extends Controller
      */
     public function __invoke(Request $request)
     {
-        $weeklies = Weekly::orderBy('id', 'desc')->get();
+        $weeklies = Weekly::orderBy('edition', 'desc')->get();
 
         return view('weeklies.index', compact('weeklies'));
     }
