@@ -56,7 +56,7 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea class="form-control" rows="4" name="description" id="description">{{ old('description') }}</textarea>
+                                    <textarea class="form-control" rows="10" name="description" id="description">{{ old('description') }}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">

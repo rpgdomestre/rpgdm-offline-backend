@@ -58,7 +58,7 @@
 
                                 <div class="col-md-6">
                                     <textarea class="form-control @error('description') is-invalid @enderror"
-                                              rows="4"
+                                              rows="10"
                                               name="description"
                                               id="description">{{ old('description') ?: $weekly->description }}</textarea>
 
