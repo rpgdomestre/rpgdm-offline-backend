@@ -135,7 +135,7 @@ class Weekly extends Model
     {
         $links = Link::with(['section', 'twitter'])
             ->select('*')
-            ->whereBetween('created_at', [$from, $to])
+            ->where('edition', $weekly->edition)
             ->orderBy('type', 'desc')
             ->orderBy('section_id', 'desc')
             ->get();
