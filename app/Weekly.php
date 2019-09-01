@@ -122,7 +122,7 @@ class Weekly extends Model
      */
     public function newWeeklyNumber(): int
     {
-        return $this->latest()->first()->edition + 1;
+        return self::count() + 1;
     }
 
     /**
