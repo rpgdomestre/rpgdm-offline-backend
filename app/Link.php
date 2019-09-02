@@ -45,7 +45,8 @@ class Link extends Model
         'type',
         'section_id',
         'source',
-        'via'
+        'via',
+        'edition'
     ];
 
     protected $dates = [
