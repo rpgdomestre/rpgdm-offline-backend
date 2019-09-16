@@ -97,4 +97,12 @@ class Link extends Model
     {
         return Carbon::createFromDate($value)->diffForHumans();
     }
+
+    /**
+     * @param string $name
+     */
+    public function setNameAttribute(string $name): void
+    {
+        $this->attributes['name'] = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+    }
 }

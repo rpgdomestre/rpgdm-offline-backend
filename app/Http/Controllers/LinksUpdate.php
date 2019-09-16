@@ -18,7 +18,7 @@ class LinksUpdate extends Controller
      */
     public function __invoke(UpdateLinks $request, Link $link)
     {
-        Link::whereId($link->id)
+        Link::find($link->id)
             ->update($request->validated());
 
         return redirect()
