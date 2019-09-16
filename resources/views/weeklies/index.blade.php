@@ -34,6 +34,10 @@
                         @endforeach
                         </tbody>
                     </table>
+
+                    <div class="justify-content-center">
+                        {{ $weeklies->links() }}
+                    </div>
                 </div>
             </div>
         </div>
