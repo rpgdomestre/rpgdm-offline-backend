@@ -35,6 +35,10 @@
                         @endforeach
                         </tbody>
                     </table>
+
+                    <div class="justify-content-center">
+                        {{ $links->links() }}
+                    </div>
                 </div>
             </div>
         </div>
