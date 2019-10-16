@@ -73,11 +73,19 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Link Type') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control" name="type" id="type">
-                                        <option @if($link->type === 'Nacional') selected @endif>Nacional</option>
-                                        <option @if($link->type === 'Internacional') selected @endif>Internacional</option>
-                                        <option @if($link->type === 'Geral') selected @endif>Geral</option>
-                                    </select>
+                                    @foreach(['Nacional', 'Internacional', 'Geral'] as $option)
+                                        <div class="form-check">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="type"
+                                                   id="radio-for-{{ $option }}"
+                                                   value="{{ $option  }}"
+                                                {{ $link->type === $option ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="radio-for-{{ $option }}">
+                                                {{ $option }}
+                                            </label>
+                                        </div>
+                                    @endforeach
 
                                     @error('type')
                                     <span class="invalid-feedback" role="alert">
@@ -92,14 +100,19 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Link Section') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control" name="section_id" id="section_id">
-                                        @foreach($sections as $section)
-                                        <option
-                                            @if($link->section->id === $section->id) selected @endif
-                                            value="{{ $section->id }}">{{ $section->name }}
-                                        </option>
-                                        @endforeach
-                                    </select>
+                                    @foreach($sections as $section)
+                                        <div class="form-check">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="section_id"
+                                                   id="radio-for-{{ $section->name }}"
+                                                   value="{{ $section->id  }}"
+                                                   @if($link->section->id === $section->id) checked @endif>
+                                            <label class="form-check-label" for="radio-for-{{ $section->name }}">
+                                                {{ $section->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
 
                                     @error('section_id')
                                     <span class="invalid-feedback" role="alert">
