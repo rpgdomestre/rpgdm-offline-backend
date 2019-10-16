@@ -40,13 +40,15 @@
                                            name="twitter[]"
                                            value="{{ $source->twitter }}">
 
-                                    <div>
-                                        <input type="checkbox"
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="checkbox"
                                                name="hides[{{ $source->source }}]"
                                                {{ $source->hide ? 'checked' : '' }}
                                                value="true"
-                                               id="should-hide">
-                                        <label class="form-check-label" for="should-hide">
+                                               id="checkbox-for-{{ $source->source }}"
+                                        >
+                                        <label class="form-check-label" for="checkbox-for-{{ $source->source }}">
                                             Should hide?
                                         </label>
                                     </div>
