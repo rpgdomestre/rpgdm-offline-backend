@@ -84,17 +84,19 @@
                     </div>
                 </div>
 
-                <h3 class="mt-5">{{ count($links) }} links on this Weekly</h3>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Type</th>
-                        <th>Section</th>
-                        <th>Source</th>
-                        <th>Via</th>
-                    </tr>
+                    <h3 class="mt-5">{{ count($links) }} links on this Weekly <a href="{{ route('links.create') }}"
+                                                                                 class="btn btn-sm btn-outline-primary">Create
+                            link</a></h3>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Section</th>
+                            <th>Source</th>
+                            <th>Via</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @foreach ($links as $link)
