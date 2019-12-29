@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreLinks;
 use App\Link;
+use Illuminate\Http\RedirectResponse;
 
 class LinksStore extends Controller
 {
@@ -12,9 +13,9 @@ class LinksStore extends Controller
      *
      * @param \App\Http\Requests\StoreLinks $request
      *
-     * @return void
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(StoreLinks $request)
+    public function __invoke(StoreLinks $request): RedirectResponse
     {
         $link = Link::firstOrCreate($request->validated());
 
