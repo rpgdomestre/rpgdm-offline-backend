@@ -23,44 +23,43 @@
                         </button>
                     </div>
 
-                    @foreach ($sources as $source)
-                        <div class="col-md-3 mb-4 {{ $source->hide ? 'd-none' : '' }}">
-                            <div class="card {{ $source->twitter ?? 'bg-danger text-white' }}">
-                                <input type="hidden" name="source[]" value="{{ $source->source }}">
-
-                                <div class="card-header">
-                                    <label for="source{{$source->id}}"
-                                           class="m-0">{{ $source->source }}</label>
-                                </div>
-
-                                <div class="card-body">
-                                    <input id="source{{$source->id}}"
-                                           type="text"
-                                           class="form-control mb-1"
-                                           name="twitter[]"
-                                           value="{{ $source->twitter }}">
-
-                                    <div class="form-check">
-                                        <input class="form-check-input"
-                                               type="checkbox"
-                                               name="hides[{{ $source->source }}]"
-                                               {{ $source->hide ? 'checked' : '' }}
-                                               value="true"
-                                               id="checkbox-for-{{ $source->source }}"
-                                        >
-                                        <label class="form-check-label" for="checkbox-for-{{ $source->source }}">
-                                            Should hide?
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <div class="col-md-12 mb-4">
-                        <button type="submit" class="btn btn-primary btn-block">
-                            {{ __('Save Twitters') }}
-                        </button>
+                    <div class="col-md-12">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Source Name</th>
+                                <th>Twitter Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($sources as $source)
+                                <tr class="{{ $source->twitter ? '' : 'bg-danger' }}">
+                                    <td>
+                                        {{$source->id}}
+                                        <input type="hidden" name="source[]" value="{{ $source->source }}">
+                                    </td>
+                                    <td>{{ $source->source }}</td>
+                                    <td>
+                                        <input id="source{{$source->id}}"
+                                               type="text"
+                                               name="twitter[]"
+                                               value="{{ $source->twitter }}"
+                                               style="width: 100%">
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="4">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        {{ __('Save Twitters') }}
+                                    </button>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </form>
             </div>
