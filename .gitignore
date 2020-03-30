@@ -12,3 +12,4 @@ yarn-error.log
 .idea
 .phpactor.json
 tags
+.DS_Store
