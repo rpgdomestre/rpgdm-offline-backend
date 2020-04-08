@@ -99,7 +99,7 @@ class Weekly extends Model
 
         return $all->filter(static function ($link) {
             return $link->twitter
-                ? (string)$link->twitter->twitter !== ''
+                ? (string) $link->twitter->twitter !== ''
                 : false;
         })->all();
     }

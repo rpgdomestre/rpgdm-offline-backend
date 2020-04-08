@@ -74,14 +74,12 @@ class Link extends Model
      */
     public function sources(): Collection
     {
-        return self::select(
-                [
-                    'links.source',
-                    'source_twitters.twitter',
-                    'source_twitters.id',
-                    'source_twitters.hide'
-                ]
-            )
+        return self::select([
+            'links.source',
+            'source_twitters.twitter',
+            'source_twitters.id',
+            'source_twitters.hide'
+        ])
             ->distinct()
             ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
             ->orderBy('links.source', 'ASC')
