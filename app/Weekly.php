@@ -49,11 +49,6 @@ class Weekly extends Model
         'to',
     ];
 
-    /**
-     * @param \App\Weekly $weekly
-     *
-     * @return array
-     */
     public function fetchLinks(Weekly $weekly): array
     {
         $links = $this->links($weekly);
@@ -75,21 +70,11 @@ class Weekly extends Model
         ];
     }
 
-    /**
-     * @param \App\Weekly $weekly
-     *
-     * @return mixed
-     */
     public function fetchAllLinksSortedByIdDesc(Weekly $weekly)
     {
         return $this->fetchLinks($weekly)['all']->sortByDesc('id');
     }
 
-    /**
-     * @param \App\Weekly $weekly
-     *
-     * @return array
-     */
     public function fetchLinksForTwitter(Weekly $weekly): array
     {
         $fetched = $this->fetchLinks($weekly);
@@ -104,29 +89,16 @@ class Weekly extends Model
         })->all();
     }
 
-    /**
-     * @param \App\Weekly $weekly
-     *
-     * @return int
-     */
     public function numberOfLinks(Weekly $weekly): int
     {
         return $this->links($weekly)->count();
     }
 
-    /**
-     * @return int
-     */
     public function newWeeklyNumber(): int
     {
         return collect(self::orderBy('updated_at', 'DESC')->limit(1)->get())->first()->edition;
     }
 
-    /**
-     * @param \App\Weekly $weekly
-     *
-     * @return \App\Link[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
-     */
     private function links(Weekly $weekly)
     {
         $links = Link::with(['section', 'twitter'])
