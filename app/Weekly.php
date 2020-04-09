@@ -82,11 +82,13 @@ class Weekly extends Model
         /** @var \Illuminate\Database\Eloquent\Collection $all */
         $all = $fetched['all'];
 
-        return $all->filter(static function ($link) {
-            return $link->twitter
-                ? (string) $link->twitter->twitter !== ''
-                : false;
-        })->all();
+        return $all->filter(
+            static function ($link) {
+                return $link->twitter
+                    ? (string)$link->twitter->twitter !== ''
+                    : false;
+            }
+        )->all();
     }
 
     public function numberOfLinks(Weekly $weekly): int
@@ -101,7 +103,13 @@ class Weekly extends Model
 
     public function latestUpdatedWeekly(): int
     {
-        return collect(self::orderBy('updated_at', 'DESC')->limit(1)->get())->first()->edition;
+        $mostUpToDate = self::orderBy('updated_at', 'DESC')
+            ->limit(1)
+            ->get();
+
+        return collect($mostUpToDate)
+            ->first()
+            ->edition;
     }
 
     private function links(Weekly $weekly)
