@@ -119,7 +119,7 @@ class Weekly extends Model
      */
     public function newWeeklyNumber(): int
     {
-        return self::count() + 1;
+        return collect(self::orderBy('updated_at', 'DESC')->limit(1)->get())->first()->edition;
     }
 
     /**

@@ -15,11 +15,11 @@ class LinksCreate extends Controller
      *
      * @return void
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, Weekly $weekly)
     {
         $sections = Section::all(['id', 'name']);
 
-        $newWeekly = Weekly::count();
+        $newWeekly = $weekly->newWeeklyNumber();
 
         return view('links.create', compact('sections', 'newWeekly'));
     }
