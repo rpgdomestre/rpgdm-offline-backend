@@ -96,10 +96,11 @@
                             <th>Section</th>
                             <th>Source</th>
                             <th>Via</th>
+                            <th>Action</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($links as $link)
+                        </thead>
+                        <tbody>
+                        @foreach ($links as $link)
                         <tr>
                             <td>{{ $link->id  }}</td>
                             <td>
@@ -111,10 +112,19 @@
                             <td>{{ $link->section->name }}</td>
                             <td>{{ $link->source }}</td>
                             <td>{{ $link->via ?? '' }}</td>
+                            <td>
+                                <form action="{{ route('links.destroy', ['link' => $link]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" name="edition" value="{{ $weekly->edition }}"/>
+                                    <input type="hidden" name="id" value="{{ $link->id }}"/>
+                                    <button class="btn btn-sm btn-danger">remove</button>
+                                </form>
+                            </td>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        @endforeach
+                        </tbody>
+                    </table>
             </div>
         </div>
     </div>
