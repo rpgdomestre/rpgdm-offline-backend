@@ -10,6 +10,27 @@
                     </div>
                 @endif
 
+                <div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-between">
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="{{ route('weeklies.edit', ['weekly' => $weekly->id - 1]) }}"
+                                   aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span> Previous
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="{{ route('weeklies.edit', ['weekly' => $weekly->id + 1]) }}"
+                                   aria-label="NExt">
+                                    Next <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
                 <div class="card">
                     <div class="card-header">{{ __('Edit Weekly') }}</div>
 
