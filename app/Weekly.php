@@ -2,37 +2,8 @@
 
 namespace App;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Weekly
- *
- * @package App
- * @property int $id
- * @property int $edition
- * @property Carbon $released_at
- * @property Carbon $from
- * @property Carbon $to
- * @property string $description
- * @property Carbon $created_at
- * @property Carbon $updated_at
- * @method Weekly latest()
- * @method Weekly first()
- * @method static Builder|Weekly newModelQuery()
- * @method static Builder|Weekly newQuery()
- * @method static Builder|Weekly query()
- * @method static Builder|Weekly whereCreatedAt($value)
- * @method static Builder|Weekly whereDescription($value)
- * @method static Builder|Weekly whereEdition($value)
- * @method static Builder|Weekly whereFrom($value)
- * @method static Builder|Weekly whereId($value)
- * @method static Builder|Weekly whereReleasedAt($value)
- * @method static Builder|Weekly whereTo($value)
- * @method static Builder|Weekly whereUpdatedAt($value)
- * @mixin \Eloquent
- */
 class Weekly extends Model
 {
     protected $fillable = [
