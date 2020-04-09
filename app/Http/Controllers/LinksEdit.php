@@ -8,14 +8,6 @@ use Illuminate\Http\Request;
 
 class LinksEdit extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Link $link
-     *
-     * @return void
-     */
     public function __invoke(Request $request, Link $link)
     {
         $sections = Section::all(['id', 'name']);

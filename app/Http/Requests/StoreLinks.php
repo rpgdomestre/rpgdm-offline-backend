@@ -7,29 +7,19 @@ use Illuminate\Validation\Rule;
 
 class StoreLinks extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
-        return (bool) $this->user();
+        return (bool)$this->user();
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
             'link' => 'required|url|unique:links',
             'name' => 'required',
             'type' => [
                 'required',
-                Rule::in(['Nacional', 'Internacional', 'Geral'])
+                Rule::in(['Nacional', 'Internacional', 'Geral']),
             ],
             'section_id' => 'required|exists:sections,id',
             'source' => 'required',

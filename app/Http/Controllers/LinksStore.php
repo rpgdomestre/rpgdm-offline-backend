@@ -8,13 +8,6 @@ use Illuminate\Http\RedirectResponse;
 
 class LinksStore extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param \App\Http\Requests\StoreLinks $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function __invoke(StoreLinks $request): RedirectResponse
     {
         $link = Link::firstOrCreate($request->validated());
@@ -23,6 +16,9 @@ class LinksStore extends Controller
 
         return redirect()
             ->route('links.create')
-            ->with('status', "Link <a href='{$editLinkRoute}'>{$link->name}</a> created!");
+            ->with(
+                'status',
+                "Link <a href='{$editLinkRoute}'>{$link->name}</a> created!"
+            );
     }
 }
