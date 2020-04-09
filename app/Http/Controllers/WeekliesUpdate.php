@@ -7,14 +7,6 @@ use App\Weekly;
 
 class WeekliesUpdate extends Controller
 {
-    /**
-     * Handle the incoming request.
-     *
-     * @param \App\Http\Requests\UpdateWeeklies $request
-     * @param \App\Weekly $weekly
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __invoke(UpdateWeeklies $request, Weekly $weekly)
     {
         Weekly::whereId($weekly->id)
@@ -22,6 +14,9 @@ class WeekliesUpdate extends Controller
 
         return redirect()
             ->route('weeklies.edit', ['weekly' => $weekly->id])
-            ->with('status', "Weekly <strong>#{$weekly->edition}</strong> updated!");
+            ->with(
+                'status',
+                "Weekly <strong>#{$weekly->edition}</strong> updated!"
+            );
     }
 }

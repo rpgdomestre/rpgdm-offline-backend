@@ -7,29 +7,14 @@ use App\SourceTwitter;
 
 class SourceTwitterStore extends Controller
 {
-    /**
-     * @var \App\SourceTwitter
-     */
-    private $twitters;
+    private SourceTwitter $twitters;
 
-    /**
-     * SourceTwitterStore constructor.
-     *
-     * @param \App\SourceTwitter $twitters
-     */
     public function __construct(
         SourceTwitter $twitters
     ) {
         $this->twitters = $twitters;
     }
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param \App\Http\Requests\StoreSourceTwitter $request
-     *
-     * @return void
-     */
     public function __invoke(StoreSourceTwitter $request)
     {
         $inserts = $this->twitters->prepareMultipleInsertValues(
@@ -48,6 +33,10 @@ class SourceTwitterStore extends Controller
 
         return redirect()
             ->route('sources.twitter.create')
-            ->withErrors(["It was not possible to save Sources' Twitters, please try again!"]);
+            ->withErrors(
+                [
+                    "It was not possible to save Sources' Twitters, please try again!",
+                ]
+            );
     }
 }
