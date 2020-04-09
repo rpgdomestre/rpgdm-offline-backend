@@ -12,8 +12,11 @@ class LinksCreate extends Controller
     {
         $sections = Section::all(['id', 'name']);
 
-        $newWeekly = $weekly->newWeeklyNumber();
+        $newWeekly = $weekly->latestUpdatedWeekly();
 
-        return view('links.create', compact('sections', 'newWeekly'));
+        return view(
+            'links.create',
+            compact('sections', 'newWeekly')
+        );
     }
 }
