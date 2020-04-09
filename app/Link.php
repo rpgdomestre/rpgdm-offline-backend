@@ -66,7 +66,11 @@ class Link extends Model
      */
     public function twitter(): BelongsTo
     {
-        return $this->belongsTo(SourceTwitter::class, 'source', 'source');
+        return $this->belongsTo(
+            SourceTwitter::class,
+            'source',
+            'source'
+        );
     }
 
     /**
@@ -74,14 +78,21 @@ class Link extends Model
      */
     public function sources(): Collection
     {
-        return self::select([
-            'links.source',
-            'source_twitters.twitter',
-            'source_twitters.id',
-            'source_twitters.hide'
-        ])
+        return self::select(
+            [
+                'links.source',
+                'source_twitters.twitter',
+                'source_twitters.id',
+                'source_twitters.hide',
+            ]
+        )
             ->distinct()
-            ->leftJoin('source_twitters', 'links.source', '=', 'source_twitters.source')
+            ->leftJoin(
+                'source_twitters',
+                'links.source',
+                '=',
+                'source_twitters.source'
+            )
             ->orderBy('links.source', 'ASC')
             ->get();
     }
@@ -101,6 +112,7 @@ class Link extends Model
      */
     public function setNameAttribute(string $name): void
     {
-        $this->attributes['name'] = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+        $convertedName = mb_convert_case($name, MB_CASE_TITLE, 'UTF-8');
+        $this->attributes['name'] = $convertedName;
     }
 }
