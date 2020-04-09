@@ -114,13 +114,11 @@ class Weekly extends Model
 
     private function links(Weekly $weekly)
     {
-        $links = Link::with(['section', 'twitter'])
+        return Link::with(['section', 'twitter'])
             ->select('*')
             ->where('edition', $weekly->edition)
             ->orderBy('type', 'desc')
             ->orderBy('section_id', 'desc')
             ->get();
-
-        return $links;
     }
 }
