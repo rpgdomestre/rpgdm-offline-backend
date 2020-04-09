@@ -11,6 +11,7 @@ Route::middleware(['auth'])->group(static function () {
     Route::get('/links/{link}/edit', 'LinksEdit')->name('links.edit');
     Route::put('/links/{link}', 'LinksUpdate')->name('links.update');
     Route::patch('/links/{link}', 'LinksUpdate');
+    Route::delete('/links/{link}', 'LinksDelete')->name('links.destroy');
 
     Route::get('/links/sections/create', 'SectionsCreate')->name('sections.create');
     Route::post('/links/sections', 'SectionsStore')->name('sections.store');
