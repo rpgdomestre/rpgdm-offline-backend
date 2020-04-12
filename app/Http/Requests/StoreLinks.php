@@ -23,7 +23,7 @@ class StoreLinks extends FormRequest
             ],
             'section_id' => 'required|exists:sections,id',
             'source' => 'required',
-            'via' => 'required_if:type,Geral',
+            'via' => 'required_if:section_id,5',
             'edition' => 'required|exists:weeklies,id',
         ];
     }
