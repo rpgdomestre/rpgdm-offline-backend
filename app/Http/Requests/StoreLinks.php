@@ -23,8 +23,8 @@ class StoreLinks extends FormRequest
             ],
             'section_id' => 'required|exists:sections,id',
             'source' => 'required',
-            'via' => 'nullable',
-            'edition' => 'required|exists:weeklies,id'
+            'via' => 'required_if:type,Geral',
+            'edition' => 'required|exists:weeklies,id',
         ];
     }
 }
