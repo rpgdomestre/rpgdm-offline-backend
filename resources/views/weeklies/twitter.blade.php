@@ -12,7 +12,7 @@
                             <textarea
                                 class="form-control"
                                 id="twitters"
-                                rows="10">@foreach ($all as $link){{ $link->twitter->twitter }} @endforeach</textarea>
+                                rows="10">Obrigado/Thanks/Gracias/Merci/Grazi/Dankeschön: @foreach ($all as $link){{ $link->twitter->twitter }} @endforeach</textarea>
                         </div>
                     </div>
                 </div>
