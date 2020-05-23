@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.12.0 on 2020-05-21 20:05:52.
+ * Generated for Laravel 7.12.0 on 2020-05-21 20:11:09.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -11885,6 +11885,36 @@ namespace Illuminate\Support\Facades {
         {
                         return \Illuminate\Routing\Router::emailVerification();
         }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function layout($layout)
+        {
+                        return \Illuminate\Routing\Router::layout($layout);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function section($section)
+        {
+                        return \Illuminate\Routing\Router::section($section);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function livewire($uri, $component = null)
+        {
+                        return \Illuminate\Routing\Router::livewire($uri, $component);
+        }
          
     }
 
@@ -15323,6 +15353,283 @@ namespace Facade\Ignition\Facades {
  
 }
 
+namespace Livewire { 
+
+    /**
+     * 
+     *
+     * @see \Livewire\LivewireManager
+     */ 
+    class Livewire {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function component($alias, $viewClass)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->component($alias, $viewClass);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function componentResolver($callback)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->componentResolver($callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getComponentClass($alias)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->getComponentClass($alias);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function activate($component, $id)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->activate($component, $id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function mount($name, $params = [])
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->mount($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function dummyMount($id, $tagName)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->dummyMount($id, $tagName);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function test($name, $params = [])
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->test($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function actingAs($user, $driver = null)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->actingAs($user, $driver);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function styles($options = [])
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->styles($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function scripts($options = [])
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->scripts($options);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function isLivewireRequest()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->isLivewireRequest();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerHydrationMiddleware($classes)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->registerHydrationMiddleware($classes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerInitialHydrationMiddleware($callables)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->registerInitialHydrationMiddleware($callables);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function registerInitialDehydrationMiddleware($callables)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->registerInitialDehydrationMiddleware($callables);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function hydrate($instance, $request)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->hydrate($instance, $request);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function initialHydrate($instance, $request)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->initialHydrate($instance, $request);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function initialDehydrate($instance, $response)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->initialDehydrate($instance, $response);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function dehydrate($instance, $response)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->dehydrate($instance, $response);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getRootElementTagName($dom)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->getRootElementTagName($dom);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function dispatch($event, ...$params)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->dispatch($event, ...$params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function listen($event, $callback)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->listen($event, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function isOnVapor()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->isOnVapor();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function isLaravel7()
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->isLaravel7();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function resolveMethodDependencies($parameters, $reflector)
+        {
+                        /** @var \Livewire\LivewireManager $instance */
+                        return $instance->resolveMethodDependencies($parameters, $reflector);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -18271,6 +18578,8 @@ namespace  {
     class View extends \Illuminate\Support\Facades\View {}
 
     class Flare extends \Facade\Ignition\Facades\Flare {}
+
+    class Livewire extends \Livewire\Livewire {}
  
 }
 

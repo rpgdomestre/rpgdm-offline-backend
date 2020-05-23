@@ -19,10 +19,10 @@ class StoreLinks extends FormRequest
             'name' => 'required',
             'type' => [
                 'required',
-                Rule::in(['Nacional', 'Internacional', 'Geral']),
+                rule::in(['nacional', 'internacional', 'geral']),
             ],
             'section_id' => 'required|exists:sections,id',
-            'source' => 'required',
+            'sourceName' => 'required',
             'via' => 'required_if:section_id,5',
             'edition' => 'required|exists:weeklies,id',
         ];
