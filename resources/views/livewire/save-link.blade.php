@@ -22,7 +22,7 @@
                                 <input id="edition"
                                        type="number"
                                        class="form-control @error('edition') is-invalid @enderror"
-                                       wire:model="edition">
+                                       wire:model.lazy="edition">
 
                                 @error('edition')
                                 <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                                        type="text"
                                        class="form-control @error('link') is-invalid @enderror"
                                        name="link"
-                                       wire:model="link">
+                                       wire:model.lazy="link">
 
                                 @error('link')
                                 <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                                        type="text"
                                        class="form-control @error('name') is-invalid @enderror"
                                        name="name"
-                                       wire:model="name">
+                                       wire:model.lazy="name">
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -80,7 +80,7 @@
                                                type="radio"
                                                name="type"
                                                id="radio-for-{{ $option }}"
-                                               value="{{ $option  }}"
+                                               value="{{ Str::lower($option)  }}"
                                                {{ old('type') === $option ? 'checked' : '' }}
                                                wire:model="type">
                                         <label class="form-check-label" for="radio-for-{{ $option }}">
@@ -126,15 +126,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="source"
+                            <label for="sourceName"
                                    class="col-md-4 col-form-label text-md-right">{{ __('Source') }}</label>
 
                             <div class="col-md-6">
-                                <input id="source"
+                                <input id="sourceName"
                                        type="text"
-                                       class="form-control @error('source') is-invalid @enderror"
-                                       name="source"
-                                       wire:model="source">
+                                       class="form-control @error('sourceName') is-invalid @enderror"
+                                       name="sourceName"
+                                       wire:model.lazy="sourceName">
 
                                 @error('source')
                                 <span class="invalid-feedback" role="alert">
@@ -153,7 +153,7 @@
                                        type="text"
                                        class="form-control @error('via') is-invalid @enderror"
                                        name="via"
-                                       wire:model="via">
+                                       wire:model.lazy="via">
 
                                 @error('via')
                                 <span class="invalid-feedback" role="alert">
