@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Section;
-use App\Weekly;
 use Illuminate\Http\Request;
 
 class LinksCreate extends Controller
 {
-    public function __invoke(Request $request, Weekly $weekly)
+    public function __invoke(Request $request)
     {
-        $sections = Section::all(['id', 'name']);
-
-        $newWeekly = $weekly->latestUpdatedWeekly();
+        // new link
+        $linkData = [];
 
         return view(
             'links.create',
-            compact('sections', 'newWeekly')
+            compact('linkData')
         );
     }
 }
