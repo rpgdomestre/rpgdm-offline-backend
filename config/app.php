@@ -177,6 +177,7 @@ return [
 
         // DOMAIN
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 
