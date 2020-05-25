@@ -127,11 +127,12 @@
                                        class="col-md-4 col-form-label text-md-right">{{ __('Source') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="source" type="text"
-                                           class="form-control @error('source') is-invalid @enderror" name="source"
+                                    <input id="sourceName" type="text"
+                                           class="form-control @error('sourceName') is-invalid @enderror"
+                                           name="sourceName"
                                            value="{{ $link->source }}" required>
 
-                                    @error('source')
+                                    @error('sourceName')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -156,7 +157,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0">
+                            <div class="mb-0 form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update Link') }}
