@@ -22,7 +22,7 @@ class UpdateLinks extends FormRequest
                 Rule::in(['Nacional', 'Internacional', 'Geral']),
             ],
             'section_id' => 'required|exists:sections,id',
-            'source' => 'required',
+            'sourceName' => 'required',
             'via' => 'nullable',
             'edition' => 'required|exists:weeklies,id'
         ];
