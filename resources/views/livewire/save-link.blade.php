@@ -24,7 +24,7 @@
                                     <input id="edition"
                                            type="number"
                                            class="form-control @error('edition') is-invalid @enderror"
-                                           wire:model.lazy="edition">
+                                           wire:model="edition">
 
                                     @error('edition')
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                                            type="text"
                                            class="form-control @error('link') is-invalid @enderror"
                                            name="link"
-                                           wire:model.lazy="link">
+                                           wire:model="link">
 
                                     @error('link')
                                     <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                                            type="text"
                                            class="form-control @error('name') is-invalid @enderror"
                                            name="name"
-                                           wire:model.lazy="name">
+                                           wire:model="name">
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -136,7 +136,7 @@
                                            type="text"
                                            class="form-control @error('sourceName') is-invalid @enderror"
                                            name="sourceName"
-                                           wire:model.lazy="sourceName">
+                                           wire:model="sourceName">
 
                                     @error('source')
                                     <span class="invalid-feedback" role="alert">
@@ -155,7 +155,7 @@
                                            type="text"
                                            class="form-control @error('via') is-invalid @enderror"
                                            name="via"
-                                           wire:model.lazy="via">
+                                           wire:model="via">
 
                                     @error('via')
                                     <span class="invalid-feedback" role="alert">
