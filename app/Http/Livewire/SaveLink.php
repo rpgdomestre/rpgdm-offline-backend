@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\StoreLinks;
-use App\Link;
+use App\Requests\StoreLinks;
+use App\Models\Link;
 use Livewire\Component;
 
 class SaveLink extends Component
@@ -61,7 +61,7 @@ class SaveLink extends Component
         $this->link = old('link', $linkData['link'] ?? '');
         $this->name = old('name', $linkData['name'] ?? '');
         $this->type = old('type', $linkData['type'] ?? '');
-        $this->section_id = old('section_id', $linkData['sectionId'] ?? 0);
+        $this->section_id = old('section_id', $linkData['section_id'] ?? 0);
         $this->sourceName = old('sourceName', $linkData['sourceName'] ?? '');
         $this->via = old('via', $linkData['via'] ?? '');
     }
