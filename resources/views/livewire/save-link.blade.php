@@ -1,179 +1,177 @@
-<div>
+<div class="w-1/2 mx-auto mb-20">
     @if (session('status'))
-        <div class="alert alert-success" style="position:absolute; bottom: 20px; right: 20px; z-index: 100">
+avelin       <div class="alert alert-success" style="position:absolute; bottom: 20px; right: 20px; z-index: 100">
             {!! session('status') !!}
         </div>
     @endif
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class="px-6 py-4">
+        <div>
+            <div>
+                <div>
+                    <form wire:submit.prevent="submit">
+                        @csrf
 
-                <div class="card">
-                    <div class="card-header">{{ __('Create Link') }}</div>
+                        <div>
+                            <label for="edition"
+                                   class="block mb-2 text-sm font-bold text-gray-700">{{ __('Edition') }}</label>
 
-                    <div class="card-body">
-                        <form wire:submit.prevent="submit">
-                            @csrf
+                            <div>
+                                <input id="edition"
+                                       type="number"
+                                       class="block w-full px-4 py-3 mb-1 leading-tight text-gray-700 border rounded appearance-none"
+                                       wire:model="edition">
 
-                            <div class="form-group row">
-                                <label for="edition"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Edition') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="edition"
-                                           type="number"
-                                           class="form-control @error('edition') is-invalid @enderror"
-                                           wire:model="edition">
-
-                                    @error('edition')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
+                                @error('edition')
+                                <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                            @else
+                                <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
+                            @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="link" class="col-md-4 col-form-label text-md-right">{{ __('Link Url') }}</label>
+                        <div>
+                            <label for="link" class="block mb-2 text-sm font-bold text-gray-700">{{ __('Link Url') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="link"
-                                           type="text"
-                                           class="form-control @error('link') is-invalid @enderror"
-                                           name="link"
-                                           wire:model="link">
+                            <div>
+                                <input id="link"
+                                       type="text"
+                                       class="block w-full px-4 py-3 mb-1 leading-tight text-gray-700 border rounded appearance-none"
+                                       name="link"
+                                       wire:model="link">
 
-                                    @error('link')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
+                                @error('link')
+                                <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                            @else
+                                <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
+                            @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Link Name') }}</label>
+                        <div>
+                            <label for="name"
+                                   class="block mb-2 text-sm font-bold text-gray-700">{{ __('Link Name') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="name"
-                                           type="text"
-                                           class="form-control @error('name') is-invalid @enderror"
-                                           name="name"
-                                           wire:model="name">
+                            <div>
+                                <input id="name"
+                                       type="text"
+                                       class="block w-full px-4 py-3 mb-1 leading-tight text-gray-700 border rounded appearance-none"
+                                       name="name"
+                                       wire:model="name">
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
+                                @error('name')
+                                <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                            @else
+                                <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
+                            @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row">
+                        <div class="flex flex-wrap -mx-3">
+                            <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                                 <label for="type"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Link Type') }}</label>
+                                       class="block mb-2 text-sm font-bold text-gray-700">{{ __('Link Type') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="mb-5">
                                     @foreach(['Nacional', 'Internacional', 'Geral'] as $option)
-                                        <div class="form-check">
-                                            <input class="form-check-input"
-                                                   type="radio"
-                                                   name="type"
-                                                   id="radio-for-{{ $option }}"
-                                                   value="{{ Str::lower($option)  }}"
-                                                   {{ old('type') === $option ? 'checked' : '' }}
-                                                   wire:model="type">
-                                            <label class="form-check-label" for="radio-for-{{ $option }}">
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="type"
+                                                id="radio-for-{{ $option }}"
+                                                value="{{ Str::lower($option)  }}"
+                                                {{ old('type') === $option ? 'checked' : '' }}
+                                                wire:model="type">
+                                            <label  for="radio-for-{{ $option }}">
                                                 {{ $option }}
                                             </label>
                                         </div>
                                     @endforeach
 
                                     @error('type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                                @else
+                                    <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
                                 @enderror
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                                 <label for="section_id"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Link Section') }}</label>
+                                       class="block mb-2 text-sm font-bold text-gray-700">{{ __('Link Section') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="mb-5">
                                     @foreach($sections as $section)
-                                        <div class="form-check">
-                                            <input class="form-check-input"
-                                                   type="radio"
-                                                   name="section_id"
-                                                   id="radio-for-{{ $section->name }}"
-                                                   value="{{ $section->id  }}"
-                                                   {{ (int) old('section_id') === $section->id ? 'checked' : '' }}
-                                                   wire:model="section_id">
-                                                   <label class="form-check-label" for="radio-for-{{ $section->name }}">
-                                                       {{ $section->name }}
-                                                   </label>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="section_id"
+                                                id="radio-for-{{ $section->name }}"
+                                                value="{{ $section->id  }}"
+                                                {{ (int) old('section_id') === $section->id ? 'checked' : '' }}
+                                                wire:model="section_id">
+                                                <label  for="radio-for-{{ $section->name }}">
+                                                    {{ $section->name }}
+                                                </label>
                                         </div>
                                     @endforeach
 
                                     @error('section_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                                @else
+                                    <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
                                 @enderror
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="sourceName"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Source') }}</label>
+                        <div>
+                            <label for="sourceName"
+                                   class="block mb-2 text-sm font-bold text-gray-700">{{ __('Source') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="sourceName"
-                                           type="text"
-                                           class="form-control @error('sourceName') is-invalid @enderror"
-                                           name="sourceName"
-                                           wire:model="sourceName">
+                            <div>
+                                <input id="sourceName"
+                                       type="text"
+                                       class="block w-full px-4 py-3 mb-1 leading-tight text-gray-700 border rounded appearance-none"
+                                       name="sourceName"
+                                       wire:model="sourceName">
 
-                                    @error('source')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
+                                @error('source')
+                                <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                            @else
+                                <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
+                            @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="via"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Via') }}</label>
+                        <div>
+                            <label for="via"
+                                   class="block mb-2 text-sm font-bold text-gray-700">{{ __('Via') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="via"
-                                           type="text"
-                                           class="form-control @error('via') is-invalid @enderror"
-                                           name="via"
-                                           wire:model="via">
+                            <div>
+                                <input id="via"
+                                       type="text"
+                                       class="block w-full px-4 py-3 mb-1 leading-tight text-gray-700 border rounded appearance-none"
+                                       name="via"
+                                       wire:model="via">
 
-                                    @error('via')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                </div>
+                                @error('via')
+                                <p class="mb-2 text-xs italic text-red-500">{{ $message }}</p>
+                            @else
+                                <p class="mb-2 text-xs italic text-red-500">&nbsp;</p>
+                            @enderror
                             </div>
+                        </div>
 
-                            <div class="mb-0 form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Create Link') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="flex justify-end mb-0 ">
+                            <button type="submit" class="px-2 py-1 mr-5 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+                                {{ __('Create Link') }}
+                            </button>
+                            <a href="{{ route('weeklies.edit', ['weekly' => $edition ]) }}" class="px-2 py-1 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">
+                                {{ __('Cancel') }}
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
