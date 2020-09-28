@@ -1,6 +1,6 @@
 <div class="w-1/2 mx-auto mb-20">
     @if (session('status'))
-avelin       <div class="alert alert-success" style="position:absolute; bottom: 20px; right: 20px; z-index: 100">
+        <div class="px-4 py-3 text-sm font-bold text-white bg-blue-500" style="position:absolute; bottom: 20px; right: 20px; z-index: 100" role="alert">
             {!! session('status') !!}
         </div>
     @endif
