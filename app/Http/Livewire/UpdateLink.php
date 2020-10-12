@@ -21,7 +21,6 @@ class UpdateLink extends Component
     public function updated($field)
     {
         $this->validateOnly($field, [
-            'id' => "required|exists:links,id,{$this->unique_id}",
             'edition' => 'required|exists:weeklies,id',
             'link' => 'required|url|unique:links',
         ]);
