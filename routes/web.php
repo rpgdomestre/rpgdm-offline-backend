@@ -15,8 +15,11 @@ use App\Http\Controllers\Dashboard\WeekliesCreate;
 use App\Http\Controllers\Dashboard\WeekliesUpdate;
 use App\Http\Controllers\Dashboard\SourceTwitterStore;
 use App\Http\Controllers\Dashboard\SourceTwitterCreate;
+use App\Http\Controllers\Dashboard\WeekliesBuild;
+use App\Http\Controllers\Dashboard\WeekliesBuildSingle;
 use App\Http\Controllers\Dashboard\WeekliesGenerateTwitter;
 use App\Http\Controllers\Dashboard\WeekliesGenerateMarkdown;
+use App\Http\Controllers\Dashboard\WeekliesPublish;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,6 +39,10 @@ Route::prefix('dashboard')
 
         Route::get('/weeklies/{weekly}/markdown', WeekliesGenerateMarkdown::class)->name('weeklies.markdown');
         Route::get('/weeklies/{weekly}/twitter', WeekliesGenerateTwitter::class)->name('weeklies.twitter');
+        Route::post('/weeklies/build', WeekliesBuild::class)->name('weeklies.build');
+        Route::post('/weeklies/build/{weekly}', WeekliesBuildSingle::class)->name('weeklies.build.single');
+        Route::post('/weeklies/publish', WeekliesPublish::class)->name('weeklies.publish');
+        Route::post('/weeklies/publish/{weekly}', WeekliesPublish::class)->name('weeklies.publish.single');
 
         Route::get('/links/create', LinksCreate::class)->name('links.create');
         Route::post('/links', LinksStore::class)->name('links.store');
