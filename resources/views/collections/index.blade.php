@@ -17,11 +17,6 @@
             </div>
 
             <div class="flex justify-end pb-6">
-                <form action="{{ route('collections.build') }}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <button class="inline-block px-2 py-1 mr-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">Build all</button>
-                </form>
                 <form action="{{ route('collections.publish') }}" method="POST">
                     @csrf
                     @method('POST')
@@ -34,7 +29,6 @@
                         <tr class="text-sm font-medium text-left text-gray-700 rounded-lg">
                             <th class="px-6 py-4 bg-gray-200 ">Title</th>
                             <th class="px-6 py-4 bg-gray-200 "># Entries</th>
-                            <th class="px-6 py-4 bg-gray-200 ">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,13 +37,6 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ Str::title($collection) }}</td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $metadata['entries'] }}</td>
-                        <td class="flex px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <form action="{{ route('collections.publish.single', ['collection' => $collection]) }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="inline-block px-2 py-1 font-bold text-white bg-red-500 rounded hover:bg-red-700">Publish</button>
-                            </form>
-                        </td>
                     </tr>
                     @endforeach
                     </tbody>
