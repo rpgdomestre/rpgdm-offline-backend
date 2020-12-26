@@ -1,23 +1,14 @@
 <?php
 
-use App\Http\Controllers\Dashboard\CollectionIndex;
 use App\Http\Controllers\Dashboard\CollectionsIndex;
 use App\Http\Controllers\Dashboard\CollectionsPublish;
-use App\Http\Controllers\Dashboard\CollectionUpdate;
 use App\Http\Controllers\Dashboard\LinksEdit;
 use App\Http\Controllers\Dashboard\LinksStore;
 use App\Http\Controllers\Dashboard\LinksCreate;
 use App\Http\Controllers\Dashboard\LinksDelete;
 use App\Http\Controllers\Dashboard\LinksUpdate;
-use App\Http\Controllers\Dashboard\PagesBuild;
-use App\Http\Controllers\Dashboard\PagesBuildSingle;
-use App\Http\Controllers\Dashboard\PagesCreate;
-use App\Http\Controllers\Dashboard\PagesEdit;
 use App\Http\Controllers\Dashboard\PagesIndex;
 use App\Http\Controllers\Dashboard\PagesPublish;
-use App\Http\Controllers\Dashboard\PagesPublishSingle;
-use App\Http\Controllers\Dashboard\PagesStore;
-use App\Http\Controllers\Dashboard\PagesUpdate;
 use App\Http\Controllers\Dashboard\WeekliesEdit;
 use App\Http\Controllers\Dashboard\SectionsStore;
 use App\Http\Controllers\Dashboard\WeekliesIndex;
@@ -71,23 +62,9 @@ Route::prefix('dashboard')
         Route::post('/links/sources/twitter', SourceTwitterStore::class)->name('sources.twitter.store');
 
         Route::get('/pages', PagesIndex::class)->name('pages.index');
-        Route::get('/pages/create', PagesCreate::class)->name('pages.create');
-        Route::post('/pages', PagesStore::class)->name('pages.store');
-        Route::get('/pages/{page}/edit', PagesEdit::class)->name('pages.edit');
-        Route::put('/pages/{page}', PagesUpdate::class)->name('pages.update');
-        Route::patch('/pages/{page}', PagesUpdate::class);
-
-        Route::post('/pages/build', PagesBuild::class)->name('pages.build');
-        Route::post('/pages/build/{page}', PagesBuildSingle::class)->name('pages.build.single');
         Route::post('/pages/publish', PagesPublish::class)->name('pages.publish');
-        Route::post('/pages/publish/{page}', PagesPublishSingle::class)->name('pages.publish.single');
 
         Route::get('/collections', CollectionsIndex::class)->name('collections.index');
-        // change to CollectionsBuild
-        Route::get('/collections/build', CollectionsIndex::class)->name('collections.build');
-        Route::post('/collections/build/{collection}', CollectionsIndex::class)->name('collections.build.single');
-        // change to CollectionsPublish
         Route::post('/collections/publish', CollectionsPublish::class)->name('collections.publish');
-        Route::post('/collections/publish/{collection}', CollectionsIndex::class)->name('collections.publish.single');
     }
 );
