@@ -1,6 +1,15 @@
 /node_modules
 /public/hot
 /public/storage
+/public/alter-ego
+/public/artigos
+/public/contato
+/public/sobre
+/public/index.html
+/public/weekly
+/public/quizzes
+/public/crowdfunding
+/public/casts
 /storage/*.key
 /vendor
 /publish
