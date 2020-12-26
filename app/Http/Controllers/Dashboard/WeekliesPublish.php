@@ -2,67 +2,56 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Actions\Rpgdm\ReadMarkdownContent;
+use App\Helpers\HtmlPublisher;
 use App\Http\Controllers\Controller;
-use DateTime;
-use ErrorException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Mni\FrontYAML\Parser;
 
 class WeekliesPublish extends Controller
 {
-    private const SAVE_TO = "publish"
-        . DIRECTORY_SEPARATOR
-        . "weekly";
+    private const SAVE_TO = "weekly";
 
-    /**
-     * Handle the incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function __invoke(Request $request)
+    public function __construct(
+        private ReadMarkdownContent $markdownReader,
+        private HtmlPublisher $publisher
+    ) {}
+
+    public function __invoke(Request $request): RedirectResponse
     {
-        // get all weeklies markdown
         $weeklies = File::allFiles(base_path(WeekliesBuild::SAVE_TO));
 
-        // iterate over them
         foreach ($weeklies as $weekly) {
-            // generate full page html
-            $contents = File::get($weekly->getPathname());
-            $contents = (new Parser())->parse($contents);
-            $yaml = $contents->getYAML();
-            $content = $contents->getContent();
+            $path = $weekly->getPathname();
+            $yaml = $this->markdownReader->getYaml($path);
+            $body = $this->markdownReader->getBody($path);
 
-            // adds HTML wrapper around content
+            $content = view('weeklies.published', [
+                'content' => $body,
+                'number' => $yaml['number'],
+            ]);
 
-            // make folder if it doesn't exist
-            $yearWeek = date('Y-W', strtotime($yaml['date']));
-            $folderMeta = [
-                base_path(self::SAVE_TO),
-                $yearWeek,
-                $yaml['number'],
-            ];
-
-            try {
-                $folderPath = implode(DIRECTORY_SEPARATOR, $folderMeta);
-                File::makeDirectory(path: $folderPath, recursive: true);
-            } catch (ErrorException) {
-                // folder exists and we don't need to worry about it
-            }
-
-            // save to publish\weekly
-            $fileName = 'index.html';
-            $finalFile = implode(DIRECTORY_SEPARATOR, [...$folderMeta, $fileName]);
-            File::put($finalFile, $content);
+            $metadata = $this->getFolderMeta($yaml);
+            $this->publisher->save(metadata: $metadata, content: $content);
         }
 
         // returns to weeklies page with success message
-        return redirect()
-            ->route('weeklies.index')
+        return redirect()->route('weeklies.index')
             ->with(
                 'status',
                 "All <strong>Weeklies</strong> published!"
             );
+    }
+
+    private function getFolderMeta(array $metadata): array
+    {
+        $yearWeek = date('Y-W', strtotime($metadata['date']));
+
+        return [
+            public_path(self::SAVE_TO),
+            $yearWeek,
+            $metadata['number'],
+        ];
     }
 }
