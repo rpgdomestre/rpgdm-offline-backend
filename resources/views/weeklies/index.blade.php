@@ -54,16 +54,6 @@
                             class="px-2 py-1 mr-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Markdown</a>
                             <a href="{{ route('weeklies.twitter', ['weekly' => $weekly]) }}"
                             class="px-2 py-1 mr-2 font-bold text-white bg-purple-500 rounded hover:bg-purple-700">Thank You</a>
-                            <form action="{{ route('weeklies.build.single', ['weekly' => $weekly]) }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="inline-block px-2 py-1 mr-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">Build</button>
-                            </form>
-                            <form action="{{ route('weeklies.publish.single', ['weekly' => $weekly]) }}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <button class="inline-block px-2 py-1 font-bold text-white bg-red-500 rounded hover:bg-red-700">Publish</button>
-                            </form>
                         </td>
                     </tr>
                     @endforeach
