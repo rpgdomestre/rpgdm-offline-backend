@@ -42,24 +42,12 @@
                                     {{ __('Weeklies') }}
                                 </x-jet-nav-link>
 
-                                <x-jet-nav-link href="/dashboard/articles" :active="request()->routeIs('articles')">
-                                    {{ __('Articles') }}
-                                </x-jet-nav-link>
-
-                                <x-jet-nav-link href="/dashboard/quizzes" :active="request()->routeIs('quizzes')">
-                                    {{ __('Quizzes') }}
-                                </x-jet-nav-link>
-
-                                <x-jet-nav-link href="/dashboard/crowdfunding" :active="request()->routeIs('crowdfunding')">
-                                    {{ __('Crowdfunding') }}
-                                </x-jet-nav-link>
-
-                                <x-jet-nav-link href="/dashboard/casts" :active="request()->routeIs('casts')">
-                                    {{ __('Casts') }}
-                                </x-jet-nav-link>
-
                                 <x-jet-nav-link href="/dashboard/pages" :active="request()->routeIs('pages')">
                                     {{ __('Pages') }}
+                                </x-jet-nav-link>
+
+                                <x-jet-nav-link href="/dashboard/collections" :active="request()->routeIs('collections')">
+                                    {{ __('Collections') }}
                                 </x-jet-nav-link>
                             </div>
                         </div>
