@@ -22,18 +22,61 @@ class WeekliesPublish extends Controller
     {
         $weeklies = File::allFiles(base_path(WeekliesBuild::SAVE_TO));
 
-        foreach ($weeklies as $weekly) {
+        $chunks = collect($weeklies)->map(function ($weekly) {
             $path = $weekly->getPathname();
             $yaml = $this->markdownReader->getYaml($path);
             $body = $this->markdownReader->getBody($path);
+            $yaml['title'] = "Weekly #{$yaml['number']}";
 
             $content = view('weeklies.published', [
                 'content' => $body,
                 'number' => $yaml['number'],
+                'description' => $yaml['description'],
             ]);
 
             $metadata = $this->getFolderMeta($yaml);
+
             $this->publisher->save(metadata: $metadata, content: $content);
+            array_shift($metadata);
+            $url = implode(DIRECTORY_SEPARATOR, ['weekly', ...$metadata]);
+            return ['number' => (int) $yaml['number'], 'yaml' => $yaml, 'body' => $body, 'url' => $url];
+        })->sortByDesc('number')
+          ->chunk(config('rpgdm.collections')['weekly']['chunk'] ?? 10);
+
+        // TODO: create pagination much like for pages
+        foreach ($chunks as $key => $chunk) {
+            $collection = 'weekly';
+            $color = 'blue';
+            $page = $key + 1;
+            $previous = $page === 1 ? '' : $page - 1;
+            $next = $page === count($chunks) ? '' : $page + 1;
+
+            $content = view(
+                "pages.listing",
+                [
+                    'chunk' => $chunk,
+                    'color' => $color,
+                    'next' => $next,
+                    'previous' => $previous,
+                    'collection' => $collection,
+                    'description' => "Página #{$page} da {$collection}",
+                ]
+            );
+            if ($key === 0) {
+                $this->publisher->save(
+                    metadata: [
+                        public_path(self::SAVE_TO)
+                    ],
+                    content: $content
+                );
+            }
+            $this->publisher->save(
+                metadata: [
+                    public_path(self::SAVE_TO),
+                    $key + 1
+                ],
+                content: $content
+            );
         }
 
         // returns to weeklies page with success message
