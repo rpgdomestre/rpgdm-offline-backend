@@ -7,6 +7,23 @@ color: gradient
 uuid: 5eac9018-dd19-4b7b-b54b-7e3dffaacd3a
 ---
 
-## Aqui teremos alguma informação
+## O começo {.inline-block}
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iure veritatis fuga nisi deserunt quibusdam quam labore. Voluptates quos tempora maiores. Minus velit alias laudantium sequi quasi consequatur asperiores commodi?
+O RPG do Mestre é um site sobre RPG criado em meados de 2009 por Erick Patrick (eu :}), ainda no formato de blog, que trazia artigos semanalmente, com uma proposta diferente dos blogs da época: conteúdo diverso sem tratar sobre qualquer sistema em específico.
+
+Com o tempo, passou a publicar diariamente, com a ajuda de grandes amigos e colaboradores, especialmente do Fernando del Angeles (hoje na Editora Retropunk) e despontou como um dos grandes blogs do Brasil na época.
+
+O site, depois de um tempo, também passou a contar com um podcast, o _Papo de Mestre_. Assim como a maioria dos podcasts da época, possuia frequência semanal e abordava temas diversos, assim como os artigos do blog. Foram mais de 40 edições.
+
+## A queda {.inline-block}
+
+Infelizmente, em 2012, após um problema no servidor em que o site ficava, todos os mais de 700 artigos foram perdidos e não havia backup desse trabalho todo, exceto por alguns podcasts foram salvos (cerca de 30 edições).
+
+Isso desmotivou bastante a equipe, principalmente Erick, fazendo com que o RPGdM passasse por um longo tempo sem atualizações.
+
+## Presente e futuro {.inline-block}
+
+Houve várias tentativas de retornar. Pensamos vários modos de voltar a publicar: Wordpress.org, Medium, WordPress num servidor próprio (de novo), inclusive um layout de 2014 estava nessa página até pouco tempo.
+Porém, dessa vez, sem a pressão de publicar todos os dias, o site voltou. E com uma nova cara e objetivo: publicar sistemas, cenários, aventuras, personagens, regras alternativas...
+
+Dessa forma, quando eles estiverem prontos ou bons suficientes para serem apresentados (imagine uma versão alpha/beta) eles serão publicados no site, onde os visitantes poderão acompanhar seu desenvolvimento.

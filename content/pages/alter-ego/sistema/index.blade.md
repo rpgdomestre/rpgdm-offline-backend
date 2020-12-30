@@ -18,12 +18,10 @@ description: >-
     </div>
 </div>
 
-<div id="dados"></div>
 ### Dados
 
 O Sistema _**Alter Ego**_ usa os dados mais comuns que existem, os dados de _6 lados_, **d6**. Tudo que precisar rolar dados você usará _**1d6**_.
 
-<div id="atributos"></div>
 ### Atributos
 
 Os Atributos no Sistema _**Alter Ego**_ são apenas quatro: _**Corpo**_, _**Mente**_, _**Vontade**_ e _**Saúde**_. Todos começam em _**0**_ e o limite máximo é _**5**_.
@@ -33,7 +31,6 @@ Os Atributos no Sistema _**Alter Ego**_ são apenas quatro: _**Corpo**_, _**Ment
 - **Vontade** - Capacidade de manter o foco, mesmo em situações adversas: interrogatórios, controle de magia, situações de pânico/terror, etc;
 - **Saúde** - Capacidade do personagem de suportar dano, das mais diversas fontes: veneno, contusão, perfuração, mágico, etc
 
-<div id="resolucoes-situacionais"></div>
 ### Resoluções Situacionais
 
 Também conhecidas como rolagens de dados. Elas que resolverão os momentos de incerteza e risco que acontecerão em suas sessões de jogo.
@@ -42,38 +39,32 @@ Os quatro atributos são a base de todas as rolagens. Cada número acima de zero
 
 Um valor 0 no atributo significa que apenas se pode rolar uma única vez o dado, sem re-rolagem possível. Um valor 5 no atributo significa que é possível rolar o dado e tentar ir além por até 5 vezes.
 
-<div id="resolucao"></div>
 #### Resolução
 
 Rola-se 1d6 e com 4, 5 ou 6 na rolagem, obtém-se um sucesso. Para as outras rolagens, caso possíveis, os mesmo valores de sucesso são mantidos, exceto se uma perícia ou talento mude essa regra.
 
-<div id="sucesso-aprimorado"></div>
 #### Sucesso aprimorado
 
 Com valores acima de 0 nos atributos, os personagens podem ir além nos seus sucessos. Cada jogada extra com sucesso aumenta a eficácia da rolagem.
 
 Assim, após o sucesso inicial e com _Físico 1_, é possível tentar outro sucesso, caso tire 4, 5 ou 6. Se assim o fizer, terá um _Sucesso Aprimorado_. Caso falhe, porém, perde todos os sucessos até o momento.
 
-<div id="falha-critica"></div>
 #### Falha crítica
 
 Será _Falha Crítica_ se o personagem obtiver duas falhas com valor 1, seguidas. Simples assim.
 
-<div id="adversidades"></div>
 #### Adversidades
 
 Em alguns casos, talvez não seja possível rolar tantas vezes quanto seu atributo permitir. Há situações, como desarmar certas bombas, que uma única falha pode ser fatal. Outro exemplo é _Esquiva_ em combate (veja mais na seção **Combate**).
 
 No _**Anexo III: Exemplos**_, você encontrará uma lista com essa e diversas outras situações e suas adversidades, bem como uma breve explicação da adversidade em si.
 
-<div id="desvantagem"></div>
 #### Desvantagem
 
 O personagem, por algum motivo, encontra-se em uma situação bem desfavorável. Em momentos assim, apenas obtém-se sucesso obtendo-se **6** na rolagem de dado.
 
 Como varia de jogo para jogo, deixamos a critério do Mediador a decisão se uma situação é uma que força uma desvantagem para o personagem ou não.
 
-<div id="perícias"></div>
 ### Perícias
 
 São aquelas atividades que os personagens sabem fazer muito bem, seja por extensiva prática ou treinamento formal.
@@ -84,20 +75,16 @@ Geralmente, as perícias que indicam treinamento formal não podem ser resolvida
 
 No _**Anexo I: Perícias**_ você encontrará uma lista das pericias que costumeiramente são usadas em sessões com _**Alter Ego**_, bem como as possibilidades de jogadas e requerimentos (valor mínimo de atributo ou atributos, Talentos Excepcionais, etc).
 
-<div id="talentos-excepcionais"></div>
 ### Talentos Excepcionais
 
 (em breve)
 
-<div id="combate"></div>
 ### Combate
 
-<div id="iniciativa"></div>
 #### Iniciativa
 
 Calcula-se da seguinte forma: _Corpo + Mente + 1d6_. Personagens agem do maior para o menor total. Personagens com mesmo valor, rolam _1d6_ até que um obtenha o maior número ou caso haja um consenso na ordem.
 
-<div id="sequencia-de-combate"></div>
 #### Sequência de combate
 
 1. Atacante seleciona quem vai atacar e rola Ataque ou usa um Talento Excepcional.
@@ -105,21 +92,18 @@ Calcula-se da seguinte forma: _Corpo + Mente + 1d6_. Personagens agem do maior p
 3. Faz-se as rolagens necessárias (_Ataque_, _Ataque vs Esquiva_, _Ataque vs Aparar_, etc).
 4. Se o atacante acertar, calcula-se o dano máximo possível e subtrai-se a proteção.
 
-<div id="ataque"></div>
 #### Ataque
 
 Algumas armas básicas (veja mais no _**Anexo IV: Itens, Armas e Armaduras**_) são possíveis usar sem qualquer requerimento extra. Outras precisam de perícias. Caso não tenha a perícia necessária e tente usar a arma mesmo assim, a jogada se realiza em _Desvantagem_.
 
 Joga-se _Corpo + Modificador de Arma + Talento Excepcional + 1d6_.
 
-<div id="esquiva"></div>
 #### Esquiva
 
 Joga-se _Corpo + Talento Excepcional + 1d6_. Caso _Resolução_ falhe, a não ser que algo extraordinário aconteça, recebe-se dano completo.
 
 Dependendo do que se está desviando, é possível que ainda sofra metade do dano com 1 sucesso.
 
-<div id="aparar"></div>
 #### Aparar
 
 Usa-se um _Ataque (corpo-a-corpo)_ usando espada, manopla ou mãos nuas para parar golpe do adversário.
@@ -128,7 +112,6 @@ Sem treinamento (_Perícia_), é uma jogada em _Desvantagem_. Com mãos nuas e s
 
 Com treinamento, usando manopla, espada ou mãos nuas, a jogada é normal e em caso de sucesso, não há dano algum.
 
-<div id="proteção"></div>
 #### Proteção
 
 Proteção será qualquer coisa que sirva para reduzir áreas de impacto ou de corte, ou ainda que diminua efeitos de super-/sobre-/paranormais.
@@ -137,42 +120,34 @@ Efeitos super-/sobre-/paranormais geralmente são atenuados ou anulados com apen
 
 Para calcular o quanto de atenuação, ou a anulação total, que a proteção dá, subtrai-se os valores das proteções existentes na seguinte ordem: _Talento Excepcional > Cobertura > Armadura/Escudo > Proteção natural_.
 
-<div id="dano"></div>
 #### Dano
 
 Calcula-se da seguinte forma: _Corpo + Arma/Objeto + Talento Excepcional + 1d6_ para _ataque corpo-a-corpo_. Para _ataque a distância_ calcula-se _Modificador Arma/Objeto + Talento Excepcional + 1d6_. Os valores de dano de cada arma ou objeto utilizado já levam em consideração sua periculosidade
 
-<div id="causando-dano"></div>
 #### Causando dano
 
 Depois que se obtém um _Ataque_ bem sucedido, calcula-se o _Dano_ como mostrado no item anterior e subtrai-se a _Proteção_, na ordem explicada na respectiva seção. Qualquer valor que sobrar além da proteção será reduzido dos níveis de dano do personagem.
 
-<div id="multiplos-ataques"></div>
 #### Múltiplos ataques
 
 Requer _perícia Múltiplos Ataques_ (bem como seus requerimentos) e para cada nível é possível um ataque extra.
 
-<div id="multiplos-alvos"></div>
 #### Múltiplos alvos
 
 Requer _perícia Múltiplos Alvos_ (bem como seus requerimentos) e para cada nível é possível escolher um alvo extra.
 
-<div id="anexo-i-pericias"></div>
 ### Anexo I: Perícias
 
 (em breve)
 
-<div id="anexo-ii-talentos-excepcioinais"></div>
 ### Anexo II: Talentos Excepcionais
 
 (em breve)
 
-<div id="anexo-iii-Exemplos"></div>
 ### Anexo III: Exemplos
 
 (em breve)
 
-<div id="anexo-iv-itens-armas-armduras"></div>
 ### Anexo IV: Itens, Armas e Armaduras
 
 (em breve)
