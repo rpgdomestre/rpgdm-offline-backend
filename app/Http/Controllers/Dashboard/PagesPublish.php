@@ -37,7 +37,8 @@ class PagesPublish extends Controller
                 'content' => $body,
                 'title' => $yaml['title'],
                 'color' => $yaml['color'] ?? '',
-                'parent' => $yaml['parent'] ?? ''
+                'parent' => $yaml['parent'] ?? '',
+                'description' => $yaml['description'] ?? ''
             ]);
 
             $metadata = $this->getFolderMeta($page->getRelativePath());
