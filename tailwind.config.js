@@ -3,6 +3,7 @@ module.exports = {
       content: [
         './resources/**/*.blade.php',
         './content/**/*.blade.md',
+        './public/**/*.html',
       ],
       options: {
       }
