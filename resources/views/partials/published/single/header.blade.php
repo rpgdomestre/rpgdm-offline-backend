@@ -7,8 +7,8 @@
         </span>
     </a>
     <ul class="flex items-center justify-center sm:text-lg sm:leading-snug font-semibold tracking-wide uppercase">
-        <li class="sm:flex-auto"><a href="/weekly/" class="p-4 hover:underline text-blue-600">Weekly</a></li>
-        <li class="sm:flex-auto"><a href="/artigos/" class="p-4 hover:underline text-pink-600">Artigos</a></li>
-        <li class="sm:flex-auto"><a href="/alter-ego/" class="p-4 hover:underline text-yellow-500">Alter Ego</a></li>
+        <li class="sm:flex-auto"><a href="/weekly/" class="p-2 sm:p-4 hover:underline text-blue-600">Weekly</a></li>
+        <li class="sm:flex-auto"><a href="/artigos/" class="p-2 sm:p-4 hover:underline text-pink-600">Artigos</a></li>
+        <li class="sm:flex-auto"><a href="/alter-ego/" class="p-2 sm:p-4 hover:underline text-yellow-500">Alter Ego</a></li>
     </ul>
 </div>
