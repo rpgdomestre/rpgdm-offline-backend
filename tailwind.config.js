@@ -1,10 +1,12 @@
 module.exports = {
-    purge: [
-        './storage/framework/views/*.php',
+    purge: {
+      content: [
         './resources/**/*.blade.php',
-        './resources/**/*.js',
-        './resources/**/*.vue',
-    ],
+        './content/**/*.blade.md',
+      ],
+      options: {
+      }
+    },
     darkMode: false,
     theme: {
       extends: {}

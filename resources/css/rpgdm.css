@@ -1,0 +1,39 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* purgecss ignore */
+.prose-blue a,
+.prose-blue h2,
+.prose-blue h3,
+.prose-blue h4,
+.prose-blue h6 {
+    @apply text-blue-600 !important;
+}
+
+/* purgecss ignore */
+.prose-pink a,
+.prose-pink h2,
+.prose-pink h3,
+.prose-pink h4,
+.prose-pink h6 {
+    @apply text-pink-600 !important;
+}
+
+/* purgecss ignore */
+.prose-yellow a,
+.prose-yellow h2,
+.prose-yellow h3,
+.prose-yellow h4,
+.prose-yellow h6 {
+    @apply text-yellow-300 !important;
+}
+
+/* purgecss ignore */
+.prose-gradient a,
+.prose-gradient h2,
+.prose-gradient h3,
+.prose-gradient h4,
+.prose-gradient h6 {
+    @apply text-transparent bg-gradient-to-r bg-clip-text from-blue-600 via-pink-600 to-yellow-300 !important;
+}
