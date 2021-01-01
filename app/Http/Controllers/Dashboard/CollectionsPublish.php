@@ -50,8 +50,15 @@ class CollectionsPublish extends Controller
 
                     array_shift($metadata);
                     $url = implode(DIRECTORY_SEPARATOR, $metadata);
-                    return ['yaml' => $yaml, 'body' => $body, 'url' => $url];
-                })->chunk($collections[$collection]['chunk'] ?? 10);
+                    return [
+                        'yaml' => $yaml,
+                        'body' => $body,
+                        'url' => $url,
+                        'time' => strtotime($yaml['date'])
+                    ];
+                })
+                ->sortByDesc('time')
+                ->chunk($collections[$collection]['chunk'] ?? 10);
 
                 // generate paginated pages as necessary
                 foreach ($chunks as $key => $chunk) {
