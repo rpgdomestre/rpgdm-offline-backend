@@ -13,6 +13,15 @@ date: '2021-01-01 18:00:00'
 
 A partir desse ano de 2021, começarei a fazer um _diário de game design_ sobre a criação dos dois primeiros cenários de Alter Ego: [Terra 2037] e Terra 3600. Como Terra 2037 será abordado no primeiro livro de ficção ambientado no cenário, o [Dackers, A Presença], começarei falando sobre a Terra 3600.
 
+<div class="p-5 bg-pink-100">
+    <p><strong class="block">Atenção</strong></p>
+    <span>Essa é o primeiro artigo de uma série falando sobre o mundo do cenário Terra 3600, daqui do RPG do Mestre. Caso ler mais, abaixo segue a lista com todos os artigos dessa série.</span>
+    <ol>
+        <li>Parte 1: Anos 2200 aos 2600</li>
+        <li><a href="artigos/2021/01/o-mundo-de-alter-ego-terra-3600-parte-2/">Parte 2: Anos 2700 aos 3300</a></li>
+    </ol>
+</div>
+
 ## Dos anos 2200 aos 2600
 
 Hoje, trarei uma visão geral do que aconteceu na Terra entre os anos de 2200 a 2600. Já garanto que a vida não foi fácil, poucos momentos de esperança apareceram para depois morrerem e levarem a humanidade junto. Prepare-se para uma estrada sem volta. Sem mais delongas, eis o que aconteceu:
