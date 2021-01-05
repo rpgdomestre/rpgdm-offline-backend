@@ -1,7 +1,17 @@
 <?php
 
+$url = env('RPGDM_BASE_URL_LOCAL', 'http://localhost:8888/');
+
+if (env('APP_ENV') === 'stage' || env('APP_ENV') === 'staging') {
+    $url = env('RPGDM_BASE_URL_STAGING') ?? throw new \Exception('No staging base url set in .env file');
+}
+
+if (env('APP_ENV') === 'prod' || env('APP_ENV') === 'production') {
+    $url = env('RPGDM_BASE_URL') ?? throw new \Exception('No production base url set in .env file');
+}
+
 return [
-    'url' => env('RPGDM_BASE_URL'),
+    'url' => $url,
     'collections' => [
         'artigos' => [
             'from' => 'artigos', // if not present assume same name as collection
