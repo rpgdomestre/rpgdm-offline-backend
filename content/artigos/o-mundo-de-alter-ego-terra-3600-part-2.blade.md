@@ -13,10 +13,11 @@ date: '2021-01-03 18:00:00'
 
 <div class="p-5 bg-pink-100">
     <strong class="block">Atenção</strong>
-    <span>Essa é o segundo artigo de uma série falando sobre o mundo do cenário Terra 3600, daqui do RPG do Mestre. Caso ler mais, abaixo segue a lista com todos os artigos dessa série.</span>
+    <span>Essa é o segundo artigo de uma série falando sobre o mundo do cenário Terra 3600, daqui do RPG do Mestre. Caso queira ler mais, abaixo segue a lista com todos os artigos dessa série.</span>
     <ol>
         <li><a href="artigos/2021/01/o-mundo-de-alter-ego-terra-3600-parte-1/">Parte 1: Anos 2200 aos 2600</a></li>
         <li>Parte 2: Anos 2700 aos 3300</li>
+        <li><a href="artigos/2021/01/o-mundo-de-alter-ego-terra-3600-parte-3/">Parte 3: Anos 3400 e 3500, e começo dos anos 3600</a></li>
     </ol>
 </div>
 
