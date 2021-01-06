@@ -37,14 +37,17 @@
                         <tr class="text-sm font-medium text-left text-gray-700 rounded-lg">
                             <th class="px-6 py-4 bg-gray-200 ">Title</th>
                             <th class="px-6 py-4 bg-gray-200 "># Entries</th>
+                            <th class="px-6 py-4 bg-gray-200 ">Hidden</th>
                         </tr>
                     </thead>
                     <tbody>
 
                     @foreach ($collections as $collection => $metadata)
                     <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ Str::title($collection) }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">@collectionTitle($collection)</td>
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{{ $metadata['entries'] }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                        @isCollectionHidden($metadata['isHidden'])</td>
                     </tr>
                     @endforeach
                     </tbody>
