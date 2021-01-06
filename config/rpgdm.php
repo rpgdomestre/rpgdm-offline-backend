@@ -23,4 +23,5 @@ return [
         'crowdfunding' => [],
         'casts' => [],
     ],
+    'contentExtensions' => ['.md']
 ];
