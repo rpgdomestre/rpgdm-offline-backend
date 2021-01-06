@@ -31,6 +31,7 @@ Route::get('/', function () {
 
 Route::prefix('dashboard')
     ->middleware(['auth:sanctum', 'verified'])
+    ->name('dashboard')
     ->group(static function () {
         Route::get('/', fn () => view('dashboard'))->name('dashboard.index');
 
@@ -66,5 +67,4 @@ Route::prefix('dashboard')
 
         Route::get('/collections', CollectionsIndex::class)->name('collections.index');
         Route::post('/collections/publish', CollectionsPublish::class)->name('collections.publish');
-    }
-);
+    });

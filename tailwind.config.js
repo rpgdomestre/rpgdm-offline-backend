@@ -1,21 +1,25 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
-    purge: {
-      content: [
-        './resources/**/*.blade.php',
+    purge: [
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
         './content/**/*.blade.md',
         './public/**/*.html',
-      ],
-      options: {
-      }
-    },
-    darkMode: false,
+    ],
+
     theme: {
-      extends: {}
+        extend: {},
     },
+
     variants: {
-      extend: {
-        animation: ['hover'],
-      }
+        extend: {
+            animation: ['hover'],
+            opacity: ['disabled'],
+        },
     },
-    plugins: [require("@tailwindcss/typography")]
-  };
+
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+};
