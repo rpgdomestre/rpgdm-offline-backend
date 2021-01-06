@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Exception;
+use Illuminate\Support\Str;
 use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 
 class Collections
 {
-    private const SAVE_TO = '';
     private const STATUS_PUBLISHED = 'Published';
     private const STATUS_EMPTY = 'Empty collection';
     private const STATUS_ERROR = 'Erroed';
@@ -23,6 +23,10 @@ class Collections
 
         $contents = [];
         foreach ($collections as $collection => $metadata) {
+            if ($metadata['hidden']) {
+                continue;
+            }
+
             try {
                 $this->collectionChunk->publish(
                     $collection,
@@ -35,7 +39,6 @@ class Collections
             } catch (DirectoryNotFoundException) {
                 $contents[$collection] = self::STATUS_EMPTY;
             } catch (Exception $exception) {
-                ddd('general', $exception);
                 $contents[$collection] = self::STATUS_ERROR;
             }
         }

@@ -22,6 +22,9 @@ return [
         'quizzes' => [],
         'crowdfunding' => [],
         'casts' => [],
+        'links' => [
+            'hidden' => true
+        ]
     ],
     'contentExtensions' => ['.md']
 ];
