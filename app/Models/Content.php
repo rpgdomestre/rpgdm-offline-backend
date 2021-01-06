@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class Content
 {
-    public function getEntriesFor(string $collectionName)
+    public function getEntriesFor(string $collectionName): Collection
     {
         $path = implode(DIRECTORY_SEPARATOR, [
             'content',
