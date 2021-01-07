@@ -13,18 +13,22 @@ if (env('APP_ENV') === 'prod' || env('APP_ENV') === 'production') {
 return [
     'url' => $url,
     'collections' => [
-        'artigos' => [
-            'from' => 'artigos', // if not present assume same name as collection
-            'to' => 'artigos', // if not present assume same name as collection
-            'chunk' => 10, // if not present assume 10,
-            'color' => 'pink' // if not present assume black
+        // 'artigos' => [
+        //     'from' => 'artigos', // if not present assume same name as collection
+        //     'to' => 'artigos', // if not present assume same name as collection
+        //     'chunk' => 10, // if not present assume 10,
+        //     'color' => 'pink' // if not present assume black
+        // ],
+        // 'quizzes' => [],
+        // 'crowdfunding' => [],
+        // 'casts' => [],
+        'weeklies' => [
+            'group' => 'edition',
+            'sort' => 'edition',
         ],
-        'quizzes' => [],
-        'crowdfunding' => [],
-        'casts' => [],
-        'links' => [
-            'hidden' => true
-        ]
+        // 'links' => [
+        //     'hidden' => true,
+        // ]
     ],
     'contentExtensions' => ['.md']
 ];

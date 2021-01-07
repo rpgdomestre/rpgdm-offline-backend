@@ -10,7 +10,8 @@ class ContentCollection
 
     public function __construct(
         private Content $content,
-        private CollectionEntry $collectionEntry
+        private CollectionEntry $collectionEntry,
+        private CollectionGroup $collectionGroup,
     ) { }
 
     public function publish(string $collection, array $metadata): Collection
@@ -19,15 +20,29 @@ class ContentCollection
         $collectionSlugConfig = $metadata['slugConfig'] ?? '';
 
         $this->entries = $this->content->getEntriesFor($collection)
-            ->mapInto(MarkdownFile::class)
-            ->map(function ($entry) use ($collectionDestination, $collectionSlugConfig) {
-                return $this->collectionEntry->save(
-                    $entry->getPathname(),
+            ->mapInto(MarkdownFile::class);
+
+        if ($metadata['group'] ?? false) {
+            $this->entries = $this->collectionGroup->prepare(
+                $this->entries,
+                $metadata['group']
+            );
+        }
+
+        $this->entries = $this->entries->map(
+            function ($entry) use ($collectionDestination, $collectionSlugConfig)
+            {
+                $collectionToUse = is_object($entry)
+                    ? $this->collectionEntry
+                    : $this->collectionGroup;
+
+                return $collectionToUse->save(
+                    is_object($entry) ? $entry->getPathname() : $entry,
                     $collectionDestination,
                     $collectionSlugConfig,
                 );
-            })
-            ->sortByDesc('time');
+            }
+        )->sortByDesc($metadata['sort'] ?? 'time');
 
         return collect($this->entries);
     }
