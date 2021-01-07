@@ -23,7 +23,7 @@ class Collections
 
         $contents = [];
         foreach ($collections as $collection => $metadata) {
-            if ($metadata['hidden']) {
+            if ($metadata['hidden'] ?? false) {
                 continue;
             }
 
