@@ -20,6 +20,6 @@ Há uma diferença, porém. Terra 2037 apresentará as possibilidades iniciais d
     <div class="flex-1 pb-5 md:p-5">
         <span class="block font-medium text-gray-700">Terra 3600</span>
         <span class="inline-block mt-2 text-gray-400">A Terra já não tem mais vida, o qeu restou do que conhecemos hoje está viajando pelo espaço.</span>
-        <em class="block" href="/alter-ego/cenarios/">Em breve</em>
+        <a class="block" href="/alter-ego/cenarios/terra-3600/">Ler mais</a>
     </div>
 </div>
