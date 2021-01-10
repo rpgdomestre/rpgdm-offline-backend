@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Actions\Rpgdm\ReadMarkdownContent;
 use Illuminate\Support\Collection;
 
 class ContentCollection
@@ -10,7 +11,8 @@ class ContentCollection
 
     public function __construct(
         private Content $content,
-        private CollectionEntry $collectionEntry
+        private CollectionEntry $collectionEntry,
+        private ReadMarkdownContent $markdownReader
     ) { }
 
     public function publish(string $collection, array $metadata): Collection
@@ -19,6 +21,11 @@ class ContentCollection
         $collectionSlugConfig = $metadata['slugConfig'] ?? '';
 
         $this->entries = $this->content->getEntriesFor($collection)
+            ->reject(function ($entry) {
+                $yaml = $this->markdownReader->getYaml($entry->getPathname());
+
+                return $yaml['draft'] ?? false;
+            })
             ->mapInto(MarkdownFile::class)
             ->map(function ($entry) use ($collectionDestination, $collectionSlugConfig) {
                 return $this->collectionEntry->save(
