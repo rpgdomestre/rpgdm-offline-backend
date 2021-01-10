@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App;
 use App\Actions\Rpgdm\ReadMarkdownContent;
 use Illuminate\Support\Collection;
 
@@ -22,8 +23,11 @@ class ContentCollection
 
         $this->entries = $this->content->getEntriesFor($collection)
             ->reject(function ($entry) {
-                $yaml = $this->markdownReader->getYaml($entry->getPathname());
+                if (App::environment(['local', 'staging', 'stage'])) {
+                    return false;
+                }
 
+                $yaml = $this->markdownReader->getYaml($entry->getPathname());
                 return $yaml['draft'] ?? false;
             })
             ->mapInto(MarkdownFile::class)
