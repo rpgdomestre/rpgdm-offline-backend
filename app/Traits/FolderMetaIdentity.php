@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 trait FolderMetaIdentity
@@ -14,7 +15,7 @@ trait FolderMetaIdentity
     ): array {
         $baseSlugPath = [];
         if ($collectionSlugConfig !== '') {
-            $baseSlugPath[] = $this->getBaseSlugPath(
+            $baseSlugPath = $this->getBaseSlugPath(
                 $collectionSlugConfig,
                 $publishedTimestamp
             );
@@ -23,8 +24,16 @@ trait FolderMetaIdentity
         return [
             public_path(),
             $firstLevelFolder,
-            ...$baseSlugPath,
+            $baseSlugPath,
             Str::slug($folderName),
         ];
+    }
+
+    private function getBaseSlugPath(
+        string $collectionSlugConfig,
+        string $publishedTimestamp
+    ): string {
+        return Carbon::createFromTimeString($publishedTimestamp)
+            ->format($collectionSlugConfig);
     }
 }

@@ -39,6 +39,7 @@ class Collections
             } catch (DirectoryNotFoundException) {
                 $contents[$collection] = self::STATUS_EMPTY;
             } catch (Exception $exception) {
+                ddd($exception);
                 $contents[$collection] = self::STATUS_ERROR;
             }
         }
