@@ -19,3 +19,4 @@ Saiba mais sobre o *Terra 3600* na série de artigos sobre o cenário. Abaixo vo
 ## Homo Ex Machina
 
 - [O mundo de Alter Ego, Terra 3600: parte 4](/artigos/2021/01/o-mundo-de-alter-ego-terra-3600-parte-4/)
+- [O mundo de Alter Ego, Terra 3600: parte 5](/artigos/2021/01/o-mundo-de-alter-ego-terra-3600-parte-5/)
