@@ -11,7 +11,8 @@ class CollectionsIndex extends Controller
 {
     public function __construct(
         private Content $content
-    ) {}
+    ) {
+    }
 
     public function __invoke(Request $request)
     {
