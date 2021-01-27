@@ -39,7 +39,7 @@ class WeekliesPublish extends Controller
             $this->publisher->save(metadata: $metadata, content: $content);
             array_shift($metadata);
             $url = implode(DIRECTORY_SEPARATOR, ['weekly', ...$metadata]);
-            return ['number' => (int) $yaml['number'], 'yaml' => $yaml, 'body' => $body, 'url' => $url];
+            return ['number' => (int) $yaml['number'], 'meta' => $yaml, 'body' => $body, 'url' => $url];
         })->sortByDesc('number')
           ->chunk(config('rpgdm.collections')['weekly']['chunk'] ?? 10);
 
