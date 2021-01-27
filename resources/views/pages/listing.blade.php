@@ -7,9 +7,9 @@
             <div class="flex flex-wrap sm:-m-12">
             @forelse ($chunk as $entry)
                 @php
-                    $yaml = $entry['yaml'];
+                    $yaml = $entry['meta'];
                     $body = $entry['body'];
-                    $url = $entry['url'];
+                    $url = $entry['url'] ?? '';
                 @endphp
                 <div class="sm:p-12 md:w-1/2 flex flex-col items-start">
                     <h3 class="sm:text-3xl text-2xl title-font font-medium text-gray-900 mt-4 mb-4">{{ $yaml['title'] }}</h2>
