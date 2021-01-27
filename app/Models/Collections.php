@@ -2,48 +2,38 @@
 
 namespace App\Models;
 
-use Exception;
-use Illuminate\Support\Str;
-use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
+use App\Tasks\EncodeCollectionsConfig;
+use App\Tasks\GenerateCollectionsReport;
+use App\Tasks\OrderCollectionsEntries;
+use App\Tasks\GetCollectionsMarkdownFiles;
+use App\Tasks\PaginateCollectionsEntries;
+use App\Tasks\ParseCollectionsMarkdownFiles;
+use App\Tasks\RemoveCollectionsDraftEntries;
+use App\Tasks\RemoveHiddenCollections;
+use App\Tasks\SaveCollectionsEntries;
+use App\Tasks\SavePaginatedCollectionsEntries;
+use Illuminate\Pipeline\Pipeline;
 
 class Collections
 {
-    private const STATUS_PUBLISHED = 'Published';
-    private const STATUS_EMPTY = 'Empty collection';
-    private const STATUS_ERROR = 'Erroed';
-
-    public function __construct(
-        private ContentCollection $contentCollection,
-        private CollectionChunk $collectionChunk,
-    ) {}
-
     public function publishToHtml(): array
     {
-        $collections = config('rpgdm.collections');
-
-        $contents = [];
-        foreach ($collections as $collection => $metadata) {
-            if ($metadata['hidden'] ?? false) {
-                continue;
-            }
-
-            try {
-                $this->collectionChunk->publish(
-                    $collection,
-                    $this->contentCollection->publish($collection, $metadata),
-                    $metadata['chunk'],
-                    ['color' => $metadata['color']]
-                );
-
-                $contents[$collection] = self::STATUS_PUBLISHED;
-            } catch (DirectoryNotFoundException) {
-                $contents[$collection] = self::STATUS_EMPTY;
-            } catch (Exception $exception) {
-                ddd($exception);
-                $contents[$collection] = self::STATUS_ERROR;
-            }
-        }
-
-        return $contents;
+        return app(Pipeline::class)
+            ->send(config('rpgdm.collections'))
+            ->through([
+                EncodeCollectionsConfig::class,
+                RemoveHiddenCollections::class,
+                GetCollectionsMarkdownFiles::class,
+                ParseCollectionsMarkdownFiles::class,
+                RemoveCollectionsDraftEntries::class,
+                OrderCollectionsEntries::class,
+                SaveCollectionsEntries::class,
+                PaginateCollectionsEntries::class,
+                SavePaginatedCollectionsEntries::class,
+                GenerateCollectionsReport::class,
+            ])
+            ->then(function ($content) {
+                return $content->toArray();
+            });
     }
 }
