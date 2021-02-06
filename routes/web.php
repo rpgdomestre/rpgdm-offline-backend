@@ -30,7 +30,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('dashboard')
-    ->middleware(['auth:sanctum', 'verified'])
+    //->middleware(['auth:sanctum', 'verified'])
     ->group(static function () {
         Route::get('/', fn () => view('dashboard'))->name('dashboard.index');
 

@@ -20,12 +20,12 @@ return [
             'color' => 'pink', // if not present assume black
             'slugConfig' =>  'Y/m'
         ],
-        'quizzes' => [],
-        'crowdfunding' => [],
-        'casts' => [],
-        'links' => [
-            'hidden' => true
-        ]
+        //'quizzes' => [],
+        //'crowdfunding' => [],
+        //'casts' => [],
+        //'links' => [
+            //'hidden' => true
+        //],
     ],
     'contentExtensions' => ['.md']
 ];
