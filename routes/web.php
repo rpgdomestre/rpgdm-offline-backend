@@ -26,11 +26,11 @@ use App\Http\Controllers\Dashboard\WeekliesPublish;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard.index');
 });
 
 Route::prefix('dashboard')
-    //->middleware(['auth:sanctum', 'verified'])
+    ->middleware(['local'])
     ->group(static function () {
         Route::get('/', fn () => view('dashboard'))->name('dashboard.index');
 
