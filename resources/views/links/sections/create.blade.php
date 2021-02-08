@@ -1,9 +1,14 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            <a href="{{route('weeklies.index')}}">{{ __('Weeklies') }}</a> &raquo;
+            {{ __('Sections') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class="py-12">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {!! session('status') !!}
@@ -47,4 +52,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-app-layout>
