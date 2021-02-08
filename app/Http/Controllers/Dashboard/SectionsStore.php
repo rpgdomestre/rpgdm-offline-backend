@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Section;
-use App\Http\Requests\StoreSection;
 use App\Http\Controllers\Controller;
+use App\Requests\StoreSection;
 
 class SectionsStore extends Controller
 {
