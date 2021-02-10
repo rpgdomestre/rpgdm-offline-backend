@@ -13,7 +13,7 @@ date: '2021-01-11 18:00:00'
 
 <div class="p-5 bg-pink-100">
     <strong class="block">Atenção</strong>
-    <span>Essa é o terceiro artigo de uma série falando sobre o mundo do cenário Terra 3600, daqui do RPG do Mestre. Caso queira ler mais, veja <a href="alter-ego/cenarios/terra-3600/" title="Alter Ego > Cenários > Terra 3600">a página dedicada do cenário</a></span>
+    <span>Essa é o quarto artigo de uma série falando sobre o mundo do cenário Terra 3600, daqui do RPG do Mestre. Caso queira ler mais, veja <a href="alter-ego/cenarios/terra-3600/" title="Alter Ego > Cenários > Terra 3600">a página dedicada do cenário</a></span>
 </div>
 
 ## Recapitulando
